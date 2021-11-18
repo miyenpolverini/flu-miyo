@@ -1,0 +1,29 @@
+.navContainer{
+    color: white;
+}
+
+.nav-index{
+    background-color: rgba(47, 79, 79,.8);
+    font-size: 14px;
+}
+
+.logoTesys{
+    margin-right: 250px;
+    margin-left: 50px;  
+    width: 200px;
+}
+
+.contenido-menu .sub-contenido-menu{
+    padding: 1rem;
+}
+
+.menu-boot{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+
+.menu-boot:hover{
+    color: white;
+    border-bottom: 5px solid black;
+}

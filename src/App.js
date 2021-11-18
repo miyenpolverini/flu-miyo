@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './Components/NavBar';
 
 function App() {
-  return (
+  return (   
     <div className="App">
+      <NavBar/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -15,9 +17,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn 
         </a>
       </header>
+      
     </div>
   );
 }
