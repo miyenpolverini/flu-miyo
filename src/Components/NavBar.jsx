@@ -2,14 +2,14 @@
 
 import React from 'react';
 import './Estilos.scss';
-import logoTesys from '../img/logo.png';
+import CardWidget from './CardWidget';
 
 const NavBar = () => {
     return (
         <main>
             <nav className="navbar navbar-expand-lg nav-index">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/#"><img className="logoTesys" src={logoTesys} alt="logo-tesys"/></a>
+                    <a className="navbar-brand" href="/#"><img className="logoTesys" src={'./img/logo.png'} alt="logo-tesys"/></a>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-lg-0 contenido-menu">
                             <li className="nav-item dropdown sub-contenido-menu">
@@ -29,6 +29,7 @@ const NavBar = () => {
                             </li>
                         </ul>
                     </div>
+                    <CardWidget />
                 </div>
             </nav>
         </main>
