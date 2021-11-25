@@ -1,8 +1,8 @@
 /* rafce */
 
 import React from 'react';
-import './Estilos.scss';
 import CardWidget from './CardWidget';
+import './NavBar.scss';
 
 const NavBar = () => {
     return (

@@ -1,4 +1,4 @@
-import './Estilos.scss';
+import './NavBar.scss';
 
 const CardWidget = () => {
     return (
