@@ -1,13 +1,11 @@
-function getProducts() {
-    return new Promise((resolve, reject) => {
+const products = [
+    { id: '1', name: 'Cpu', precio: '40.000', stock: '10', img: './img/cpu1.png' },
+    { id: '2', name: 'Teclado', precio: '2.000', stock: '20', img: './img/teclado1.png' },
+    { id: '3', name: 'Mouse', precio: '1.000', stock: '15', img: './img/mouse1.png' }
+]
 
-        const products = [
-            { id: '1', name: 'cpu', precio: '400', stock: '10' },
-            { id: '2', name: 'teclado', precio: '20', stock: '20' },
-            { id: '3', name: 'mouse', precio: '10', stock: '15' }
-        ]
+export const getProducts = () => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => resolve(products), 1000)
     })
 }
-
-export default getProducts

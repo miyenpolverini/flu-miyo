@@ -1,0 +1,44 @@
+
+.tarjetas {
+    margin: 50px;
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+ }
+
+.tarjeta {
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+}
+
+.tarjeta img {
+    width: 220px;
+    height: 150px; }
+
+.tarjeta-contenido-detalle {
+    margin-top: 50px;
+    padding: 10px;
+    border-top: 2px solid black;
+}
+
+.tarjetaTitulo{
+    color: darkslategray;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.tarjetaPrecio{
+    color: darkslategray;
+    font-weight: bolder;
+    text-align: left;
+    font-size: 20px;
+}
+
+.tarjetaDetalle{
+    width: 100px;
+    font-size: 14px;
+    background-color: darkslategray;
+    color: white;
+}
