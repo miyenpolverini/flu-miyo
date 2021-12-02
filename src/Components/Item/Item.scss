@@ -42,3 +42,27 @@
     background-color: darkslategray;
     color: white;
 }
+
+.itemDetalle {
+    margin: 50px;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+ }
+
+.itemPrecio{
+    font-weight: bolder;
+    text-align: left;
+    font-size: 30px;
+    
+}
+
+.itemCarac{
+    text-align: left;
+    font-size: 20px;
+}
+
+.itemCarac p{
+    text-decoration: underline;
+}
