@@ -1,15 +1,15 @@
 import React from 'react'
 import './Item.scss'
 
-const ItemDetail = () => {
+const ItemDetail = ({item}) => {
     return (
         <div className="itemDetalle">
-            <h2>PC Cpu Computadora Intel I3 Hd 1tb 4gb</h2>
-            <div >
+            <h2>{item.detail}</h2>
+            <div>
                 <div>
-                    <img src="./img/cpuAmpliada.jpg" alt="cpu detalle"></img>
+                    <img className="itemImg" src={item.img} alt="cpu detalle"></img>
                 </div>
-                <h4 className="itemPrecio">$ 40.000</h4>
+                <h4 className="itemPrecio">$ {item.precio}</h4>
                 <div className="itemCarac">
                     <p>Caracteristicas:</p>
                     <ul>

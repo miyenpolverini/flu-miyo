@@ -15,6 +15,7 @@ const Item = ({ producto }) => {
                         <h6 className="tarjetaPrecio">$ {producto.precio}</h6>
                     </div>
                     <button className="tarjetaDetalle">Ver detalle</button>
+                    <p className="detalleProd">{producto.detail}</p>
                 </div>
             </div>
         </div>

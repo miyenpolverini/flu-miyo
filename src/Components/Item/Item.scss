@@ -6,6 +6,11 @@
     justify-content: center;
     font-family: 'Roboto', sans-serif;
  }
+ .tarjetas:hover{
+   
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
 
 .tarjeta {
     width: 300px;
@@ -65,4 +70,16 @@
 
 .itemCarac p{
     text-decoration: underline;
+}
+
+.itemImg{
+    width: 500px;
+}
+
+.detalleProd{
+    color: #666;
+    font-size: 14px;
+    font-weight: 300;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: none;
 }

@@ -1,6 +1,6 @@
 import ItemDetail from "../Item/ItemDetail"
 import { useState, useEffect } from "react"
-import { getProducts } from "./products"
+import { getItem } from "./products"
 
 
 const ItemDetailContainer = (props) => {
@@ -9,21 +9,21 @@ const ItemDetailContainer = (props) => {
         color: 'white'
     }
     
-    const [products, setProducts] = useState([])
+    const [item, setItem] = useState([])
 
     useEffect(() => {
-        const list = getProducts()
-        list.then(list => {setProducts(list)})
+        const list = getItem()
+        list.then(list => {setItem(list)})
     
         return (() => {    
-            setProducts([])
+            setItem([])
         })
       }, [])
 
 
     return (
-        <div>            
-            <ItemDetail />
+        <div>
+            <ItemDetail item={item} />
         </div>
     )
 }
