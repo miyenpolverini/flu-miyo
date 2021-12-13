@@ -2,13 +2,13 @@ import React from 'react'
 import Item from '../Item/Item'
 
 const ItemList = ({ productos }) => {
+    console.log(productos)
     return (
         <div>
-            <ul>
-                {productos.map(product =>
-                    <Item key={product.id} producto={product} />
-                )}
-            </ul>
+            
+            {productos.map(product =>
+               <Item key={product.id} producto={product} />
+            )}
         </div>
     )
 }

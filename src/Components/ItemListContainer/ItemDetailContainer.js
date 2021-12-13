@@ -1,29 +1,34 @@
 import ItemDetail from "../Item/ItemDetail"
 import { useState, useEffect } from "react"
-import { getItem } from "./products"
+import { getProductById } from "../../services/products"
+import { useParams } from "react-router-dom"
+import Loader from "../../Loader"
 
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = () => {
 
     const style = {
         color: 'white'
     }
-    
+
     const [item, setItem] = useState([])
+    const { paramId } = useParams()
 
     useEffect(() => {
-        const list = getItem()
-        list.then(list => {setItem(list)})
-    
-        return (() => {    
+        const list = getProductById(paramId)
+        list.then(list => { setItem(list) })
+
+        return (() => {
             setItem([])
         })
-      }, [])
+    }, [paramId])
 
 
     return (
         <div>
+            {item.length !== 0 ?
             <ItemDetail item={item} />
+            :<Loader />}
         </div>
     )
 }

@@ -1,32 +1,44 @@
-import ItemList  from "../ItemList/ItemList"
-import ItemCount from "../ItemCount/ItemCount"
+import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react"
-import { getProducts } from "./products"
+import { getProducts, getCategoryById } from "../../services/products"
+import { useParams } from "react-router-dom"
+import Loader from "../../Loader"
 
 const ItemListContainer = (props) => {
 
     const style = {
         color: 'white'
     }
-    
+
     const [products, setProducts] = useState([])
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        const list = getProducts()
-        list.then(list => {setProducts(list)})
-    
-        return (() => {    
-            setProducts([])
-        })
-      }, [])
+
+        (async () => {
+            if (categoryId) {
+                const list = getCategoryById(categoryId)
+                list.then(list => { setProducts(list) })
+
+            }
+            else {
+                const list = getProducts()
+                list.then(list => { setProducts(list) })
+
+            }
+        })()
+
+
+    }, [categoryId])
 
 
     return (
-        <div>            
+        <>
             <h1 style={style}>{props.greeting}</h1>
-            <ItemList productos= {products} />
-            <ItemCount stock= {12} initial= {1} />
-        </div>
+            {products.length !== 0 ?
+            <ItemList productos={products} />
+            :<Loader />}
+        </>
     )
 }
 

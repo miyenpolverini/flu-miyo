@@ -14,13 +14,18 @@
 
 .boton:hover{
     cursor: pointer;
+    color: white;
 }
-
 
 .botonAgregar{
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
-    width: 300px;
+    width: 400px;
     border: 5px solid black;
     border-radius: 50px;
+    margin-bottom: 50px;
+}
+
+.botonAgregar:hover{
+    background-color: lightblue;
 }

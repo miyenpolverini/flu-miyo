@@ -13,6 +13,7 @@
     color: rgba(255, 255, 255, 0.8);
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
+    text-decoration: none;
 }
 
 .menu-boot:hover{
@@ -30,3 +31,31 @@
     width: 50px;
     margin-right: 10px;
 }
+
+// MENU DESPLEGABLE 
+
+ul ul li {
+  width: 190px;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+
+/* para desplegar sub-menu sin clickear */
+ul li:hover ul {
+  display:block;
+  margin-top: 2px;
+  background-color: darkslategray;
+} 
+
+.submenu-boot{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: white;
+  }
+
+
+.submenu-boot li a:hover{
+  color: gray;  
+}
+
