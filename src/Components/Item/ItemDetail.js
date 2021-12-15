@@ -1,8 +1,39 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Item.scss'
 
 const ItemDetail = ({ item }) => {
+
+    const [contador, setContador] = useState(0)
+
+    const onAdd = (count) => {
+        if (item.stock > 0) {
+            setContador(count)
+            const fecha = new Date().toLocaleString();
+            console.log(fecha)
+            console.log(`Se agregaron  ${count}  productos al carrito`)
+
+        }
+        else {
+            alert("Disculpe! No contamos con stock disponible");
+        }
+    }
+
+    const ButtonViewCart = () => {
+        return (
+            <div>
+                <Link to={'/'}>
+                    <button className='botonSeguirCompra'>Seguir comprando</button>
+                </Link>
+                <Link to={'/cart'}>
+                    <button className='botonVerCarrito'>Ver carrito</button>
+                </Link>
+            </div>
+        )
+    }
+
     return (
         <div className="itemDetalle">
             <h2>{item.detail}</h2>
@@ -22,7 +53,7 @@ const ItemDetail = ({ item }) => {
                     </ul>
                 </div>
             </div>
-            <ItemCount stock={12} initial={1} />
+            {contador > 0 ? <ButtonViewCart /> : <ItemCount onConfirm={onAdd} stock={item.stock} initial={1} />}
         </div>
     )
 }

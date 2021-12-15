@@ -7,10 +7,6 @@ import Loader from "../../Loader"
 
 const ItemDetailContainer = () => {
 
-    const style = {
-        color: 'white'
-    }
-
     const [item, setItem] = useState([])
     const { paramId } = useParams()
 

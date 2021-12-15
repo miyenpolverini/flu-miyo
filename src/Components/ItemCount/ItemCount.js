@@ -4,14 +4,13 @@ import { useState } from "react";
 import { TiPlus } from "react-icons/ti";
 import { TiMinus } from "react-icons/ti";
 
+const ItemCount = ({ onConfirm, stock, initial }) => {
 
-const ItemCount = (props) => {
-
-    const [contador, setContador] = useState(props.initial)
+    const [contador, setContador] = useState(initial)
 
     /* funciones */
     const increment = () => {
-        if (contador < props.stock) {
+        if (contador < stock) {
             setContador(contador + 1)
         }
     }
@@ -22,18 +21,7 @@ const ItemCount = (props) => {
         }
     }
 
-    const onAdd = () => {
-        if (props.stock > 0) {
-            const fecha = new Date().toLocaleString();
-            console.log(fecha)
-            console.log("Se agregaron "+ contador +" productos al carrito")
-        }
-        else{
-            alert("Disculpe! No contamos con stock disponible");
-        }
-
-    }
-
+  
     return (
         <div>
             <div className='contadorContainer'>
@@ -45,7 +33,8 @@ const ItemCount = (props) => {
                     <TiPlus />
                 </div>
             </div>
-            <button className='botonAgregar' onClick={onAdd}>Agregar al carrito</button>
+            <button className='botonAgregar' onClick={() => onConfirm(contador)}>Agregar al carrito
+            </button>
         </div>
     )
 }
