@@ -6,6 +6,7 @@ const products = [
     { id: '5', category: 'mouse', precio: '1.000', stock: '15', img: '../../img/mouse1.png', detail: 'Mouse de juego Redragon Cobra M711-FPS negro' }
 ]
 
+
 const categories = [
     {id:'cpu', description:'CPU'},
     {id:'teclado', description:'Teclados'},

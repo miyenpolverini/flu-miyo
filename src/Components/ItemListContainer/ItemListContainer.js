@@ -1,6 +1,6 @@
 import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react"
-import { getProducts, getCategoryById } from "../../services/products"
+import { getProducts, getCategoryById } from "../../Services/products"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
 

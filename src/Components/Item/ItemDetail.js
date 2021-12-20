@@ -1,14 +1,20 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './Item.scss'
+import cartContext from '../../Context/cartContext'
 
 const ItemDetail = ({ item }) => {
 
     const [contador, setContador] = useState(0)
 
+    const { addCarrito, removeProducto } = useContext(cartContext)
+
     const onAdd = (count) => {
+
+        addCarrito(item.id, item.detail, item.precio, `${count}`)
+
         if (item.stock > 0) {
             setContador(count)
             const fecha = new Date().toLocaleString();
@@ -21,12 +27,14 @@ const ItemDetail = ({ item }) => {
         }
     }
 
+
     const ButtonViewCart = () => {
         return (
             <div>
                 <Link to={'/'}>
                     <button className='botonSeguirCompra'>Seguir comprando</button>
                 </Link>
+                <button className='botonAgregar' onClick={() => removeProducto(item.id)}>Borrar producto</button>
                 <Link to={'/cart'}>
                     <button className='botonVerCarrito'>Ver carrito</button>
                 </Link>

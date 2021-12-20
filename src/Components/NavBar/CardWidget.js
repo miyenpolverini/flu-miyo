@@ -1,6 +1,8 @@
 import './NavBar.scss';
 
 const CardWidget = () => {
+
+
     return (
         <div className='carritoContainer'>
             <img className='carrito' src={'./img/carrito.png'} alt='imagen-carrito'></img>
