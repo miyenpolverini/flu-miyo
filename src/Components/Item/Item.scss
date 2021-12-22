@@ -57,19 +57,29 @@
     color: white;
 }
 
+//ITEM DETALLE
+
 .itemDetalle {
-    margin-top: 10px;
-    width: 440px;
-    padding: 20px;
+    width: 90%;
+    margin: 10px 70px;
+    padding: 100px;
     font-family: 'Roboto', sans-serif;
     background-color: white;
     color: black;
+    display: flex;
+    align-items: center;
  }
+
+.itemImg{
+    margin-right: 50px;
+    width: 280px;
+}
 
 .itemPrecio{
     font-weight: bolder;
     text-align: left;
-    font-size: 30px;   
+    font-size: 30px;  
+    margin-top: 30px; 
 }
 
 .itemCarac{
@@ -77,10 +87,7 @@
     font-size: 14px;
 }
 
-.itemImg{
-    margin: 10px;
-    width: 250px;
-}
+
 
 .detalleProd{
     color: #666;
@@ -105,26 +112,22 @@
     margin-left: -20px; 
 }
 
-.botonVerCarrito{
-    font-family: 'Roboto', sans-serif;
+.botonVerCarrito,
+.botonSeguirCompra{
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
-    width: 400px;
-    border: 5px solid black;
-    border-radius: 50px;
-    margin-bottom: 50px;
+    color: white;
+    width: 250px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 138px;
+    margin-right: 50px;
+    background-color:rgba(30, 144, 255, .9);
 }
 
 .botonVerCarrito:hover,
 .botonSeguirCompra:hover{
-    background-color: lightblue;
+    background-color: dodgerblue;
 }
 
-.botonSeguirCompra{
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    width: 400px;
-    border: 5px solid black;
-    border-radius: 50px;
-    margin-top: 43px;
-    margin-bottom: 50px;
-}
+

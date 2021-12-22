@@ -8,18 +8,20 @@ import cartContext from '../../Context/cartContext'
 const ItemDetail = ({ item }) => {
 
     const [contador, setContador] = useState(0)
+    const [btnAgregar, setBtnAgregar] = useState(true)
 
-    const { addCarrito, removeProducto } = useContext(cartContext)
+    const { addCarrito, parseNumber } = useContext(cartContext)
 
-    const onAdd = (count) => {
+    const agregarCarrito = (contador) => {
 
-        addCarrito(item.id, item.detail, item.precio, `${count}`)
+        addCarrito(item.id, item.detail, item.precio, contador)
 
         if (item.stock > 0) {
-            setContador(count)
+            setContador(contador)
+            setBtnAgregar(false)
             const fecha = new Date().toLocaleString();
             console.log(fecha)
-            console.log(`Se agregaron  ${count}  productos al carrito`)
+            console.log('Se agregaron ' + contador + ' productos al carrito')
 
         }
         else {
@@ -34,9 +36,8 @@ const ItemDetail = ({ item }) => {
                 <Link to={'/'}>
                     <button className='botonSeguirCompra'>Seguir comprando</button>
                 </Link>
-                <button className='botonAgregar' onClick={() => removeProducto(item.id)}>Borrar producto</button>
                 <Link to={'/cart'}>
-                    <button className='botonVerCarrito'>Ver carrito</button>
+                    <button className='botonVerCarrito'>Ir al carrito</button>
                 </Link>
             </div>
         )
@@ -44,12 +45,14 @@ const ItemDetail = ({ item }) => {
 
     return (
         <div className="itemDetalle">
-            <h2>{item.detail}</h2>
             <div>
                 <div>
                     <img className="itemImg" src={item.img} alt={item.name}></img>
                 </div>
-                <h4 className="itemPrecio">$ {item.precio}</h4>
+            </div>
+            <div>
+                <h2>{item.detail}</h2>
+                <h4 className="itemPrecio">$ {parseNumber(item.precio)}</h4>
                 <div className="itemCarac">
                     <p>Caracteristicas principales:</p>
                     <ul>
@@ -60,8 +63,9 @@ const ItemDetail = ({ item }) => {
                         <li>Gabinete con fuente de 500 W con teclado y mouse</li>
                     </ul>
                 </div>
+                {btnAgregar ? <ItemCount onAdd={(contador) => agregarCarrito(contador)} stock={item.stock} initial={1} />
+                    : <ButtonViewCart />}
             </div>
-            {contador > 0 ? <ButtonViewCart /> : <ItemCount onConfirm={onAdd} stock={item.stock} initial={1} />}
         </div>
     )
 }

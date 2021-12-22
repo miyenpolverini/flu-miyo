@@ -1,13 +1,20 @@
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import cartContext from '../../Context/cartContext'
 import './NavBar.scss';
 
 const CardWidget = () => {
 
+    const { calculateCantTotal } = useContext(cartContext)
 
     return (
-        <div className='carritoContainer'>
-            <img className='carrito' src={'./img/carrito.png'} alt='imagen-carrito'></img>
-            <h5>0</h5>
-        </div>
+        <>
+            <Link className='carritoContainer' to={'/cart'}>
+                <img className='carrito' src={'./img/carrito.png'} alt='imagen-carrito'></img>
+                <h5 className='cantCarrito'>{calculateCantTotal()}</h5>
+            </Link >
+        </>
+
     )
 }
 

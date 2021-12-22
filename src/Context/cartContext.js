@@ -1,100 +1,105 @@
 import React, { useState } from 'react'
+import Cart from '../Components/Cart/Cart'
 
 const Context = React.createContext()
 
 export const AddCartContextProvider = ({ children }) => {
 
-    const [product, setProduct] = useState('')
+    const [carrito, setCarrito] = useState([])
 
-    /* funciones */
+    /* FUNCIONES */
     const isInCart = (prodId) => {
 
-        const item = JSON.parse(window.localStorage.getItem("productoElegido"))
-
-        const prodEncontrado = item.find(prod => parseInt(prod.id) === parseInt(prodId))
-
-        if (prodEncontrado) {
-            return prodEncontrado.cantidad
-        }
-        else {
-            return false
-        }
+        return carrito.some(prod => prod.id === prodId)
     }
 
     const removeProducto = (prodId) => {
 
-        const item = JSON.parse(window.localStorage.getItem("productoElegido"))
+        const carritoFiltrado = carrito.filter(element => element.id != prodId)
 
-        const itemAlmacenados = item.filter(element => element.id != prodId)
-
-        window.localStorage.setItem("productoElegido", JSON.stringify(itemAlmacenados))
-
-        setProduct(itemAlmacenados)
+        setCarrito(carritoFiltrado);
 
     }
 
     const addCarrito = (prodId, prodName, prodPrice, prodQuantity) => {
 
-        class Producto_elegido {
-            constructor(id, name, price, cantidad) {
-                this.id = id
-                this.name = name
-                this.price = price
-                this.cantidad = cantidad
-            }
+        const EstaEnElCarrito = isInCart(prodId)
+
+        if (EstaEnElCarrito) {
+
+            let productoDuplicado = carrito.find(elemento => elemento.id === prodId);
+            productoDuplicado.cantidad += prodQuantity;
+
+            let cartSinRepetido = carrito.filter(elemento => elemento.id !== prodId);
+            setCarrito([...cartSinRepetido, productoDuplicado]);
+
         }
-
-        const item = window.localStorage.getItem("productoElegido")
-
-        if (item) {
-
-            const EstaEnElCarrito = isInCart(prodId)
-
-            if (EstaEnElCarrito) {
-
-                //borro anterior
-                const item = JSON.parse(window.localStorage.getItem("productoElegido"))
-
-                const itemAlmacenados = item.filter(element => element.id != prodId)
-
-                //push nuevo con cantidad actualizada
-                const cantidadTotal = parseInt(EstaEnElCarrito) + parseInt(prodQuantity)
-
-                const productoElegido = new Producto_elegido(prodId, prodName, prodPrice, cantidadTotal)
-
-                itemAlmacenados.push(productoElegido);
-
-                window.localStorage.setItem("productoElegido", JSON.stringify(itemAlmacenados))
-
-                setProduct(itemAlmacenados)
-
-            }
-            else {
-                const productoElegido = new Producto_elegido(prodId, prodName, prodPrice, prodQuantity)
-                const productosAgregados = JSON.parse(window.localStorage.getItem("productoElegido"))
-                productosAgregados.push(productoElegido);
-
-                setProduct(productosAgregados)
-
-                window.localStorage.setItem("productoElegido", JSON.stringify(productosAgregados))
-            }
-        }
-
         else {
-            const productoElegido = new Producto_elegido(prodId, prodName, prodPrice, prodQuantity)
-            const productosAgregados = new Array()
-            productosAgregados.push(productoElegido)
 
-            setProduct(productosAgregados)
+            setCarrito([...carrito, { id: prodId, name: prodName, price: prodPrice, cantidad: prodQuantity }]);
 
-            window.localStorage.setItem("productoElegido", JSON.stringify(productosAgregados))
         }
+
+        calculateCantTotal()
+        calculatePrecioTotal()
     }
+
+    const calculateCantTotal = () => {
+
+        let total = 0
+
+        for (let i = 0; i < carrito.length; i++) {
+            let objeto_producto = carrito[i]
+            total = total + (parseInt(objeto_producto.cantidad))
+        }
+
+        return total
+    }
+
+    const calculatePrecioTotal = () => {
+
+        let precioTotal = 0
+
+        for (let i = 0; i < carrito.length; i++) {
+            let objeto_producto = carrito[i];
+            precioTotal = precioTotal + (parseInt(objeto_producto.cantidad) * objeto_producto.price)
+        }
+
+        return parseNumber(precioTotal)
+    }
+
+    const vaciarCart = () => {
+
+        setCarrito([])
+        window.localStorage.clear();
+    }
+
+    const parseNumber = (precio) => {
+
+        let precioPars = precio.toString()
+
+        if (precioPars.length === 4) {
+            precioPars = precioPars.slice(0, 1) + "." + precioPars.slice(1, 4);
+        }
+        else if (precioPars.length === 5) {
+            precioPars = precioPars.slice(0, 2) + "." + precioPars.slice(2, 5);
+        }
+        else if (precioPars.length === 6) {
+            precioPars = precioPars.slice(0, 3) + "." + precioPars.slice(3, 6);
+        }
+        else if (precioPars.length === 7) {
+            precioPars = precioPars.slice(0, 1) + "." + precioPars.slice(1, 4) + "." + precioPars.slice(4, 7);
+        }
+
+        return precioPars
+    }
+
 
 
     return (
         <Context.Provider value={{
-            addCarrito, removeProducto
+            addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
+            vaciarCart, parseNumber, carrito
         }}>
             {children}
         </Context.Provider>

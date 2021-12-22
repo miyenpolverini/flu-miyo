@@ -22,9 +22,11 @@
 }
 
 .carritoContainer{
+    width: 85px;
     display: flex;
     align-items:center;
     margin: 10px;
+    text-decoration: none;
 }
 
 .carrito{
@@ -57,5 +59,16 @@ ul li:hover ul {
 
 .submenu-boot li a:hover{
   color: gray;  
+}
+
+.cantCarrito{
+  font-size: 14px;
+  color: white;
+  border-radius: 50%;
+  background-color: black;
+  padding: 10px;
+  position: relative;
+  bottom: 10px;
+  right: 20px;
 }
 

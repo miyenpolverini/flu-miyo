@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TiPlus } from "react-icons/ti";
 import { TiMinus } from "react-icons/ti";
 
-const ItemCount = ({ onConfirm, stock, initial }) => {
+const ItemCount = ({ onAdd, stock, initial }) => {
 
     const [contador, setContador] = useState(initial)
 
@@ -21,19 +21,24 @@ const ItemCount = ({ onConfirm, stock, initial }) => {
         }
     }
 
-  
+
     return (
         <div>
-            <div className='contadorContainer'>
-                <div className='boton' onClick={decrement}>
-                    <TiMinus />
+            <div className='contenidoCant' >
+                <div>
+                    <h5>Cantidad: </h5>
                 </div>
-                <h2>{contador}</h2>
-                <div className='boton' onClick={increment}>
-                    <TiPlus />
+                <div className='contadorContainer' >
+                    <div className='boton' onClick={decrement}>
+                        <TiMinus />
+                    </div>
+                    <h4>{contador}</h4>
+                    <div className='boton' onClick={increment}>
+                        <TiPlus />
+                    </div>
                 </div>
             </div>
-            <button className='botonAgregar' onClick={() => onConfirm(contador)}>Agregar al carrito
+            <button className='botonAgregar' onClick={() => onAdd(contador)}>Agregar al carrito
             </button>
         </div>
     )

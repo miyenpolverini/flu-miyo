@@ -1,0 +1,85 @@
+.avisoCart{
+    width: 300px;
+    margin: 50px;
+}
+
+.tituloCartVacio{
+    font-family: 'Poppins', sans-serif;
+    color: black;
+
+}
+
+//BOTONES
+.botonTerminar{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    width: 400px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color:rgba(30, 144, 255, .9);
+}
+
+.botonTerminar:hover{
+    background-color: dodgerblue;
+}
+
+.botonVaciar{
+    background-color: rgba(255, 255, 0, .5);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    width: 180px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.botonVaciar:hover{
+    background-color: yellow;
+}
+
+//TABLA
+
+.table-carrito{
+    font-size: 20px;  
+}
+
+.table-tit-prod{
+    width: 680px;
+}
+
+.table-tit-cant{
+    width: 20px;
+}
+
+.table-tit-prec{
+    width: 120px;
+    text-align: left;
+}
+
+.table-tit-stot{
+    width: 120px;
+    text-align: left;
+}
+
+.table-tit-tach{
+    width: 10px;
+}
+
+.tachito{
+    width: 15px;
+    color: white;
+}
+
+.tachito:hover{
+    cursor: pointer;
+}
+
+.totalPrecio{
+    font-weight: bolder;
+    text-align: left;
+}
+
+.prod-name{
+    text-align: left;
+}
