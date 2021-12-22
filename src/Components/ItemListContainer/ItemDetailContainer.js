@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import { getProductById } from "../../Services/products"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
+import { getDoc, doc } from "firebase/firestore"
+import { dataBase } from "../../Services/firebase/firebase"
 
 
 const ItemDetailContainer = () => {
@@ -11,22 +13,19 @@ const ItemDetailContainer = () => {
     const { paramId } = useParams()
 
     useEffect(() => {
-        const list = getProductById(paramId)
-        list.then(list => { setItem(list) })
 
-        return (() => {
-            setItem([])
-        })
+
+
     }, [paramId])
-
+}
 
     return (
         <div>
             {item.length !== 0 ?
-            <ItemDetail item={item} />
-            :<Loader />}
+                <ItemDetail item={item} />
+                : <Loader />}
         </div>
     )
-}
 
-export default ItemDetailContainer
+
+    export default ItemDetailContainer
