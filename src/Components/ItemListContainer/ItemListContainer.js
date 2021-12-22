@@ -4,7 +4,7 @@ import { getProducts, getCategoryById } from "../../Services/products"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
 import { dataBase } from '../../Services/firebase/firebase'
-import { collection, getDocs, query, QuerySnapshot } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 
 const ItemListContainer = (props) => {
@@ -19,33 +19,23 @@ const ItemListContainer = (props) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
+        /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
+        getDocs(collection(dataBase, 'productos')).then((QuerySnapshot) => {
 
-       /*  getDocs(collection(dataBase, 'productos' )).then((QuerySnapshot) => {
+            const products = QuerySnapshot.docs.map(doc => {
+           
+                return{ id: doc.id, ...doc.data()}
+            })
 
-            console.log(QuerySnapshot)
+            setProducts(products)
+        }).catch((error) =>{
+            console.log('Error conexion firebase', error)
+        }).finally(() =>{
+            setLoading(false)
         })
- */
-        (async () => {
-            if (categoryId) {
-                const list = getCategoryById(categoryId)
-                list.then(list => {
-                    setProducts(list)
-                    setLoading(false)
-                })
 
 
-            }
-            else {
-                const list = getProducts()
-                list.then(list => {
-                    setProducts(list)
-                    setLoading(false)
-                })
 
-
-            }
-
-        })()
 
 
     }, [categoryId])
