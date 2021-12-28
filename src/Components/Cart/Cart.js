@@ -1,12 +1,17 @@
 import React from 'react'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cartContext from '../../Context/cartContext'
 import './Cart.scss'
+import { dataBase } from '../../Services/firebase/firebase'
+import { collection, addDoc, writeBatch, getDoc, doc } from 'firebase/firestore'
+import Loader from '../../Loader';
 
 const Cart = () => {
 
-    const { carrito, calculatePrecioTotal, vaciarCart, removeProducto, parseNumber} = useContext(cartContext)
+    const { carrito, calculatePrecioTotal, emptyCart, removeProducto, parseNumber } = useContext(cartContext)
+
+    const [processing, setProcessing] = useState(false)
 
     const CartEmpty = () => {
         return (
@@ -43,9 +48,9 @@ const Cart = () => {
                                     <td>{product.cantidad}</td>
                                     <td className='prod-name'>$ {parseNumber(product.price)}</td>
                                     <td className='prod-name'>$ {parseNumber(`${product.cantidad * product.price}`)}</td>
-                                    <td><img className='tachito' src='./img/tachito.svg' 
-                                    onClick={() => removeProducto(product.id)}></img></td>         
-                                    
+                                    <td><img className='tachito' src='./img/tachito.svg'
+                                        onClick={() => removeProducto(product.id)}></img></td>
+
                                 </tr>
                             )
                         })}
@@ -57,16 +62,63 @@ const Cart = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button className='botonTerminar'>Finalizar mi compra</button>
-                <button className='botonVaciar' onClick={() => vaciarCart()}>Vaciar carrito</button>
+                <button className='botonTerminar' onClick={() => confirmOrder()}>Finalizar mi compra</button>
+                <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar carrito</button>
 
             </div>
         )
     }
 
+    const confirmOrder = () => {
+
+        setProcessing(true)
+
+        const newOrder = {
+            producto: carrito,
+            total: calculatePrecioTotal(),
+            nombre: 'miyen',
+            cel: '1131116419',
+            email: 'miyenpolverini@gmail.com'
+        }
+
+        const batch = writeBatch(dataBase)
+        const outOfStock = []
+
+        newOrder.producto.forEach(prod => {
+            getDoc(doc(dataBase, 'productos', prod.id)).then((QuerySnapshot) => {
+
+                if (QuerySnapshot.data().stock >= prod.cantidad) {
+                    batch.update(doc(dataBase, 'productos', QuerySnapshot.id),
+                        { stock: QuerySnapshot.data().stock - prod.cantidad })
+                }
+                else {
+                    outOfStock.push({ id: QuerySnapshot.id, ...QuerySnapshot.data() })
+                }
+            })
+        });
+
+        if (outOfStock.length === 0) {
+            addDoc(collection(dataBase, 'ordenes'), newOrder).then(({ id }) => {
+                batch.commit().then(() => {
+                    console.log(id)
+                })
+            }).catch((error) => {
+                console.log('Error conexion firebase', error)
+            })
+        }
+
+        setTimeout(() => {
+            emptyCart()
+            setProcessing(false)
+        }, 2000)
+
+
+    }
+
     return (
         <div>
-            {carrito.length > 0 ? <CartFull /> : <CartEmpty />}
+            {processing ? <Loader /> :
+                carrito.length > 0 ? <CartFull /> : <CartEmpty />}
         </div>
     )
 }

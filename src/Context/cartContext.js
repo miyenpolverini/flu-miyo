@@ -68,7 +68,7 @@ export const AddCartContextProvider = ({ children }) => {
         return parseNumber(precioTotal)
     }
 
-    const vaciarCart = () => {
+    const emptyCart = () => {
 
         setCarrito([])
         window.localStorage.clear();
@@ -99,7 +99,7 @@ export const AddCartContextProvider = ({ children }) => {
     return (
         <Context.Provider value={{
             addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            vaciarCart, parseNumber, carrito
+            emptyCart, parseNumber, carrito
         }}>
             {children}
         </Context.Provider>

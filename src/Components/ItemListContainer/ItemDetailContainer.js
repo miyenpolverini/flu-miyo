@@ -1,6 +1,5 @@
 import ItemDetail from "../Item/ItemDetail"
 import { useState, useEffect } from "react"
-import { getProductById } from "../../Services/products"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
 import { getDoc, doc } from "firebase/firestore"
@@ -14,10 +13,25 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
+        getDoc(doc(dataBase, 'productos', paramId)).then((QuerySnapshot) => {
+
+            const item = { id: QuerySnapshot.id, ...QuerySnapshot.data() }
+            setItem(item)
+
+        }).catch((error) => {
+            console.log('Error conexion firebase', error)
+        }).finally(() => {
+            console.log('finalizo')
+        })
+
+
+        return (() => {
+            setItem([])
+        })
 
 
     }, [paramId])
-}
+
 
     return (
         <div>
@@ -26,6 +40,6 @@ const ItemDetailContainer = () => {
                 : <Loader />}
         </div>
     )
+}
 
-
-    export default ItemDetailContainer
+export default ItemDetailContainer

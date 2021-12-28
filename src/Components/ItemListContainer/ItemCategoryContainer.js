@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react"
-import { getCategories } from "../../Services/products"
 import CategoryList from "../ItemList/CategoryList"
+import { dataBase } from '../../Services/firebase/firebase'
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
 
 const ItemCategoryContainer = () => {
 
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        const list = getCategories()
-        list.then(list => { setCategories(list) })
+        getDocs(collection(dataBase, 'categorias')).then((QuerySnapshot) => {
+
+            const categories = QuerySnapshot.docs.map(doc => {
+
+                return { id: doc.id, ...doc.data() }
+            })
+
+            setCategories(categories)
+        }).catch((error) => {
+            console.log('Error conexion firebase', error)
+        }).finally(() => {
+            console.log('finalizo llamada firebase')
+        })
 
         return (() => {
             setCategories([])

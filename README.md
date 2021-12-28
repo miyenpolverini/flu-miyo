@@ -8,7 +8,7 @@ npm install node-sass
 npm install boostrap
 npm install react-router-dom@5.2
 
-## Ejecucióm
+## Ejecución
 
 npm start
 
@@ -42,4 +42,11 @@ You will also see any lint errors in the console.
 `ItemDetail`   -> devuelve el formateo de la card detallada
 `Category`     -> devuelve el formateo de las categorias
 
+## Configuración basde de datos Firebase
 
+REACT_APP_apiKey="AIzaSyB3_flfzBfTF5SI04nStQ8vYK0PdBs6FB0"
+REACT_APP_authDomain="app-tesysnet.firebaseapp.com"
+REACT_APP_projectId="app-tesysnet"
+REACT_APP_storageBucket="app-tesysnet.appspot.com"
+REACT_APP_messagingSenderId="68754414655"
+REACT_APP_appId="1:68754414655:web:9e81b971e9b1a928ee6c8a"

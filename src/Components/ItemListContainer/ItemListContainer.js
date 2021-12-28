@@ -1,6 +1,5 @@
 import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react"
-import { getProducts, getCategoryById } from "../../Services/products"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
 import { dataBase } from '../../Services/firebase/firebase'
@@ -41,19 +40,36 @@ const ItemListContainer = (props) => {
         else {
 
             /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
-            getDocs(collection(dataBase, 'productos')).then((QuerySnapshot) => {
+            /*    getDocs(query(collection(dataBase, 'productos'), orderBy('precio','desc'))).then((QuerySnapshot) => {
+   
+                   const products = QuerySnapshot.docs.map(doc => {
+   
+                       return { id: doc.id, ...doc.data() }
+                   })
+   
+                   setProducts(products)
+               }).catch((error) => {
+                   console.log('Error conexion firebase', error)
+               }).finally(() => {
+                   setLoading(false)
+               }) */
 
-                const products = QuerySnapshot.docs.map(doc => {
+            (async () => {
 
-                    return { id: doc.id, ...doc.data() }
-                })
+                try {
 
-                setProducts(products)
-            }).catch((error) => {
-                console.log('Error conexion firebase', error)
-            }).finally(() => {
-                setLoading(false)
-            })
+                    const QuerySnapshot = await getDocs(query(collection(dataBase, 'productos'), orderBy('category')))
+                    const products = QuerySnapshot.docs.map(doc => {
+
+                        return { id: doc.id, ...doc.data() }
+
+                    })
+                    setProducts(products)
+                    setLoading(false)
+                } catch (error) {
+                    console.log('error', error)
+                }
+            })()
 
         }
 

@@ -7,7 +7,7 @@ import cartContext from '../../Context/cartContext'
 
 const ItemDetail = ({ item }) => {
 
-    const [contador, setContador] = useState(0)
+    const [count, setCounter] = useState(0)
     const [btnAgregar, setBtnAgregar] = useState(true)
 
     const { addCarrito, parseNumber } = useContext(cartContext)
@@ -17,7 +17,7 @@ const ItemDetail = ({ item }) => {
         addCarrito(item.id, item.detail, item.precio, contador)
 
         if (item.stock > 0) {
-            setContador(contador)
+            setCounter(contador)
             setBtnAgregar(false)
             const fecha = new Date().toLocaleString();
             console.log(fecha)
