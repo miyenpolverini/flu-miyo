@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cartContext from '../../Context/cartContext'
 import './Cart.scss'
 import { dataBase } from '../../Services/firebase/firebase'
@@ -13,6 +13,8 @@ const Cart = () => {
 
     const [processing, setProcessing] = useState(false)
 
+    let navigate = useNavigate()
+
     const CartEmpty = () => {
         return (
             <div>
@@ -20,7 +22,7 @@ const Cart = () => {
                 <img className='avisoCart' src={'./img/cartEmpty.png'}></img>
                 <div>
                     <Link to={'/'}>
-                        <button className='botonSeguirCompra'>Empezar a comprar</button>
+                        <button className='btnStartBuy'>Empezar a comprar</button>
                     </Link>
                 </div>
             </div>
@@ -62,62 +64,27 @@ const Cart = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button className='botonTerminar' onClick={() => confirmOrder()}>Finalizar mi compra</button>
+                <button className='botonTerminar' onClick={() => setUpOrder()}>Comprar ahora</button>
                 <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar carrito</button>
 
             </div>
         )
     }
 
-    const confirmOrder = () => {
+    const setUpOrder = () => {
 
         setProcessing(true)
 
-        const newOrder = {
-            producto: carrito,
-            total: calculatePrecioTotal(),
-            nombre: 'miyen',
-            cel: '1131116419',
-            email: 'miyenpolverini@gmail.com'
-        }
-
-        const batch = writeBatch(dataBase)
-        const outOfStock = []
-
-        newOrder.producto.forEach(prod => {
-            getDoc(doc(dataBase, 'productos', prod.id)).then((QuerySnapshot) => {
-
-                if (QuerySnapshot.data().stock >= prod.cantidad) {
-                    batch.update(doc(dataBase, 'productos', QuerySnapshot.id),
-                        { stock: QuerySnapshot.data().stock - prod.cantidad })
-                }
-                else {
-                    outOfStock.push({ id: QuerySnapshot.id, ...QuerySnapshot.data() })
-                }
-            })
-        });
-
-        if (outOfStock.length === 0) {
-            addDoc(collection(dataBase, 'ordenes'), newOrder).then(({ id }) => {
-                batch.commit().then(() => {
-                    console.log(id)
-                })
-            }).catch((error) => {
-                console.log('Error conexion firebase', error)
-            })
-        }
-
         setTimeout(() => {
-            emptyCart()
+            navigate('/formBuy')
             setProcessing(false)
-        }, 2000)
-
+        }, 3000)
 
     }
 
     return (
         <div>
-            {processing ? <Loader /> :
+            {processing ? <Loader tipo='preparando' /> :
                 carrito.length > 0 ? <CartFull /> : <CartEmpty />}
         </div>
     )

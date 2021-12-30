@@ -14,9 +14,8 @@ const ItemDetail = ({ item }) => {
 
     const agregarCarrito = (contador) => {
 
-        addCarrito(item.id, item.detail, item.precio, contador)
-
         if (item.stock > 0) {
+            addCarrito(item.id, item.detail, item.precio, contador)
             setCounter(contador)
             setBtnAgregar(false)
             const fecha = new Date().toLocaleString();
@@ -43,6 +42,14 @@ const ItemDetail = ({ item }) => {
         )
     }
 
+    const NoStock = () => {
+        return (
+            <div>
+                <h4 className='sinStock'>SIN STOCK</h4>
+            </div>
+        )
+    }
+
     return (
         <div className="itemDetalle">
             <div>
@@ -63,7 +70,7 @@ const ItemDetail = ({ item }) => {
                         <li>Gabinete con fuente de 500 W con teclado y mouse</li>
                     </ul>
                 </div>
-                {btnAgregar ? <ItemCount onAdd={(contador) => agregarCarrito(contador)} stock={item.stock} initial={1} />
+                {item.stock === 0 ? <NoStock /> : btnAgregar ? <ItemCount onAdd={(contador) => agregarCarrito(contador)} stock={item.stock} initial={1} />
                     : <ButtonViewCart />}
             </div>
         </div>

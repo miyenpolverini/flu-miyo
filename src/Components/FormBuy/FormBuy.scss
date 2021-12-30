@@ -1,0 +1,23 @@
+.form-compra{
+    color: black;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btnFinish,
+.btnCancel{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgba(30, 144, 255, .9);
+    border: rgba(30, 144, 255, .9);
+    margin-left: 20px;
+}
+
+.btnFinish:hover,
+.btnCancel:hover{
+    background-color: dodgerblue;
+}

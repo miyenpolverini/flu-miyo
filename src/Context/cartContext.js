@@ -6,6 +6,7 @@ const Context = React.createContext()
 export const AddCartContextProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
+    const [order, setOrder] = useState('')
 
     /* FUNCIONES */
     const isInCart = (prodId) => {
@@ -94,12 +95,18 @@ export const AddCartContextProvider = ({ children }) => {
         return precioPars
     }
 
+    const loadOrder = (id) => {
+
+        setOrder(id)
+    }
+
+
 
 
     return (
         <Context.Provider value={{
             addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito
+            emptyCart, parseNumber, carrito, loadOrder, order
         }}>
             {children}
         </Context.Provider>
