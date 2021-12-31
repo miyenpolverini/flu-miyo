@@ -14,7 +14,7 @@ const FormBuy = () => {
 
     const [buying, setBuying] = useState(false)
     const [contact, setContact] = useState({ name: '', email: '', phone: '', comment: '' })
-    
+
 
     const handleInputChange = (event) => {
         setContact({
@@ -80,34 +80,37 @@ const FormBuy = () => {
         }, 2000)
 
 
-    }    
+    }
 
 
     return (
         <>
             {buying ? <Loader tipo='comprando' /> :
-                <form onSubmit={confirmOrder}>
-                    <div className="form-floating mb-3">
-                        <input type="text" className="form-control" id="floatingInput" placeholder='name@example.com' name='name' onChange={handleInputChange} required></input>
-                        <label className='form-compra' for="floatingInput">Nombre y Apellido</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input type="email" className="form-control" id="floatingInput" placeholder='name@example.com' name='email' onChange={handleInputChange} required></input>
-                        <label className='form-compra' for="floatingInput">Email</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input type="number" className="form-control" id="floatingInput" placeholder='name@example.com' name='phone' onChange={handleInputChange} required></input>
-                        <label className='form-compra' for="floatingInput">Celular</label>
-                    </div>
-                    <div className="form-floating mb-5">
-                        <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='comment' onChange={handleInputChange}></textarea>
-                        <label className='form-compra' for="floatingTextarea">Comentario</label>
-                    </div>
-                    <button className='btnFinish' type='submit'>Finalizar mi compra</button>
-                    <Link to={'/cart'}>
-                        <button className='btnCancel'>Cancelar</button>
-                    </Link>
-                </form>
+                <div>
+                    <h2 className='titleForm'>¡Tu producto a un paso!</h2>
+                    <form onSubmit={confirmOrder}>
+                        <div className="form-floating mb-3 mt-5">
+                            <input type="text" className="form-control" id="floatingInput" placeholder='name@example.com' name='name' onChange={handleInputChange} required></input>
+                            <label className='form-compra' for="floatingInput">Nombre y Apellido</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="email" className="form-control" id="floatingInput" placeholder='name@example.com' name='email' onChange={handleInputChange} required></input>
+                            <label className='form-compra' for="floatingInput">Email</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="number" className="form-control" id="floatingInput" placeholder='name@example.com' name='phone' onChange={handleInputChange} required></input>
+                            <label className='form-compra' for="floatingInput">Celular</label>
+                        </div>
+                        <div className="form-floating mb-5">
+                            <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='comment' onChange={handleInputChange}></textarea>
+                            <label className='form-compra' for="floatingTextarea">Comentario</label>
+                        </div>
+                        <button className='btnFinish' type='submit'>Finalizar mi compra</button>
+                        <Link to={'/cart'}>
+                            <button className='btnCancel'>Cancelar</button>
+                        </Link>
+                    </form>
+                </div>
             }
         </>
     )

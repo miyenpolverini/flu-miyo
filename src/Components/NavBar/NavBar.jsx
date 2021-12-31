@@ -12,7 +12,7 @@ const NavBar = () => {
             <nav className="navbar navbar-expand-lg nav-index">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={'/'}>
-                        <img className="logoTesys" src={'./img/logo.png'} alt="logo-tesys" />
+                        <img className="logoTesys" src={'https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988732/logo_pcvqit.png'} alt="logo-tesys" />
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto">
@@ -29,10 +29,15 @@ const NavBar = () => {
                                     data-bs-toggle="dropdown" aria-expanded="false">SERVICIOS
                                 </a>
                             </li>
-                            <li className="nav-item dropdown sub-contenido-menu">
+                            <li className="nav-item dropdown">
                                 <a className="active menu-boot m-4" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">CONTACTO
+                                    data-bs-toggle="dropdown" aria-expanded="false">MI CUENTA
                                 </a>
+                                <ul className="dropdown-menu submenu-boot p-3" aria-labelledby="navbarDropdown">
+                                    <Link className="misCompras" to={'/myHistory'}>
+                                        Mis compras
+                                    </Link>
+                                </ul>
                             </li>
                         </ul>
                     </div>

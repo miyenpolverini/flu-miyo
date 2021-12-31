@@ -19,7 +19,7 @@ const Cart = () => {
         return (
             <div>
                 <h2 className='tituloCartVacio'>¡El carrito de compras está vacío!</h2>
-                <img className='avisoCart' src={'./img/cartEmpty.png'}></img>
+                <img className='avisoCart' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988714/cartEmpty_kplei5.png'></img>
                 <div>
                     <Link to={'/'}>
                         <button className='btnStartBuy'>Empezar a comprar</button>

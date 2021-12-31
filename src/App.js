@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import FormBuy from './Components/FormBuy/FormBuy';
 import PurchaseCompleted from './Components/PurchaseCompleted/PurchaseCompleted';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import MyHistory from './Components/MyHistory/MyHistory';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path='/cart' element={<Cart />}></Route>
               <Route path='/formBuy' element={<PrivateRoute privType='formBuy'><FormBuy /></PrivateRoute>}></Route>
               <Route path='/purchaseCompleted' element={<PrivateRoute privType='purchaseCompleted'><PurchaseCompleted /></PrivateRoute>}></Route>
+              <Route path='/myHistory' element={<MyHistory />}></Route>
               <Route path='*' element={<h2>Not found</h2>}></Route>
             </Routes>
           </div>
