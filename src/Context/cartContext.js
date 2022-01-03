@@ -7,6 +7,7 @@ export const AddCartContextProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
     const [order, setOrder] = useState('')
+    const [email, setEmail] = useState('')
 
     /* FUNCIONES */
     const isInCart = (prodId) => {
@@ -22,7 +23,7 @@ export const AddCartContextProvider = ({ children }) => {
 
     }
 
-    const addCarrito = (prodId, prodName, prodPrice, prodQuantity) => {
+    const addCarrito = (prodId, prodName, prodPrice, prodImg, prodQuantity) => {
 
         const EstaEnElCarrito = isInCart(prodId)
 
@@ -37,7 +38,7 @@ export const AddCartContextProvider = ({ children }) => {
         }
         else {
 
-            setCarrito([...carrito, { id: prodId, name: prodName, price: prodPrice, cantidad: prodQuantity }]);
+            setCarrito([...carrito, { id: prodId, name: prodName, price: prodPrice, img: prodImg, cantidad: prodQuantity }]);
 
         }
 
@@ -96,17 +97,18 @@ export const AddCartContextProvider = ({ children }) => {
     }
 
     const loadOrder = (id) => {
-
         setOrder(id)
     }
 
-
+    const saveEmail = (email) => {
+        setEmail(email)
+    }
 
 
     return (
         <Context.Provider value={{
             addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito, loadOrder, order
+            emptyCart, parseNumber, carrito, loadOrder, order, saveEmail, email
         }}>
             {children}
         </Context.Provider>

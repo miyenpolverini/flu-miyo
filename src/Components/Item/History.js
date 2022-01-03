@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import cartContext from '../../Context/cartContext'
 
 const History = ({ orden }) => {
 
-    console.log(orden)
+    const { parseNumber } = useContext(cartContext)
+
     return (
-        <div className="tarjetas">
-            <div className="tarjeta">
-                <div>
-           
-                    <p className="detalleProd">ID {orden.id}</p>
-                    <p className="detalleProd">$ {orden.total}</p>
-                </div>
+        <div className="order">
+            <div>
+                {orden.product.map((prod) =>
+                    <li className='order-container'>
+                        <div>
+                            <img className="imgProd" src={prod.img}></img>
+                        </div>
+                        <div>
+                            <p className="detalleOrder">ID {orden.id}</p>
+                            <p className="detalleOrder">{prod.name}</p>
+                            <p className="detalleOrder">Total $ {parseNumber(prod.price)}</p>
+                        </div>
+                    </li>
+                )}
             </div>
         </div>
     )

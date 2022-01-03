@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
     const agregarCarrito = (contador) => {
 
         if (item.stock > 0) {
-            addCarrito(item.id, item.detail, item.precio, contador)
+            addCarrito(item.id, item.detail, item.precio, item.img, contador)
             setCounter(contador)
             setBtnAgregar(false)
             const fecha = new Date().toLocaleString();

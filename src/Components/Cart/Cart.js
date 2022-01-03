@@ -50,7 +50,7 @@ const Cart = () => {
                                     <td>{product.cantidad}</td>
                                     <td className='prod-name'>$ {parseNumber(product.price)}</td>
                                     <td className='prod-name'>$ {parseNumber(`${product.cantidad * product.price}`)}</td>
-                                    <td><img className='tachito' src='./img/tachito.svg'
+                                    <td><img className='tachito' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1641066871/tachito_yzwc0i.svg'
                                         onClick={() => removeProducto(product.id)}></img></td>
 
                                 </tr>

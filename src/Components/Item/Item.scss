@@ -87,8 +87,6 @@
     font-size: 14px;
 }
 
-
-
 .detalleProd{
     color: #666;
     font-size: 14px;
@@ -137,4 +135,43 @@
     font-weight: bolder;
     margin: 50px;
 }
+
+//ORDENES
+
+.order-tit{
+    color: darkslategray;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+}
+
+.order-container{
+    display: flex;
+    align-items: center;
+}
+
+.order {
+    margin-top: 50px;
+    margin-left: -350px;
+    width: 500px;
+    background-color: white;
+    padding: 20px;   
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.imgProd{
+    width: 100px;
+    height: 100px;
+}
+
+.detalleOrder{
+    color: #666;
+    font-size: 14px;
+    font-weight: 300;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20px;
+}
+
+
 

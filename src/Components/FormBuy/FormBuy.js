@@ -8,7 +8,7 @@ import Loader from '../../Loader'
 
 const FormBuy = () => {
 
-    const { carrito, calculatePrecioTotal, emptyCart, loadOrder } = useContext(cartContext)
+    const { carrito, calculatePrecioTotal, emptyCart, loadOrder, saveEmail } = useContext(cartContext)
 
     let navigate = useNavigate()
 
@@ -34,6 +34,8 @@ const FormBuy = () => {
     const confirmOrder = (event) => {
 
         setBuying(true)
+
+        saveEmail(contact.email)
 
         event.preventDefault()
 
