@@ -13,8 +13,6 @@ const MyHistory = () => {
 
     useEffect(() => {
 
-        console.log(email)
-
         /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
         getDocs(query(collection(dataBase, 'ordenes'), where('email', '==', email))).then((QuerySnapshot) => {
 
@@ -22,7 +20,6 @@ const MyHistory = () => {
 
                 return { id: doc.id, ...doc.data() }
             })
-
             setOrders(orders)
         }).catch((error) => {
             console.log('Error conexion firebase', error)
@@ -30,11 +27,12 @@ const MyHistory = () => {
             setLoading(false)
         })
 
-
     }, [email])
+
+    
     return (
         <div>
-            {loading ? <Loader /> : <HistoryList ordenes={orders} />}
+            {loading ? <Loader /> : orders.length === 0 ? <h2 className='tituloCartVacio'> Aún no posee órdenes de compra</h2> : <HistoryList ordenes={orders} />}
         </div>
     )
 }

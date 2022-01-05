@@ -1,8 +1,9 @@
 import React from 'react'
 import './ItemCount.scss';
 import { useState } from "react";
-import { TiPlus } from "react-icons/ti";
-import { TiMinus } from "react-icons/ti";
+import { TiPlus, TiMinus } from "react-icons/ti";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 
 const ItemCount = ({ onAdd, stock, initial }) => {
 
@@ -21,6 +22,11 @@ const ItemCount = ({ onAdd, stock, initial }) => {
         }
     }
 
+    const initialize = () => {
+        setContador(initial)
+        
+    }
+
 
     return (
         <div>
@@ -30,11 +36,13 @@ const ItemCount = ({ onAdd, stock, initial }) => {
                 </div>
                 <div className='contadorContainer' >
                     <div className='boton' onClick={decrement}>
-                        <TiMinus />
+                        <IoIosArrowBack />
                     </div>
-                    <h4>{contador}</h4>
+                    <div className='boxNum' onClick={initialize}>
+                        <h4 className='count'>{contador}</h4>
+                    </div>
                     <div className='boton' onClick={increment}>
-                        <TiPlus />
+                        <IoIosArrowForward />
                     </div>
                 </div>
             </div>

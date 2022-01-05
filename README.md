@@ -6,7 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 npm install node-sass
 npm install boostrap
-npm install react-router-dom@5.2
+npm install react-router-dom@6
+npm install react-icons --save
+npm install firebase
 
 ## Ejecución
 
@@ -42,7 +44,7 @@ You will also see any lint errors in the console.
 `ItemDetail`   -> devuelve el formateo de la card detallada
 `Category`     -> devuelve el formateo de las categorias
 
-## Configuración basde de datos Firebase
+## Configuración base de datos Firebase
 
 REACT_APP_apiKey="AIzaSyB3_flfzBfTF5SI04nStQ8vYK0PdBs6FB0"
 REACT_APP_authDomain="app-tesysnet.firebaseapp.com"

@@ -14,7 +14,7 @@ const Item = ({ producto }) => {
                 <div>
                     <Link className="tarjeta-contenido" to={`/detail/${producto.id}`}>
                         <div>
-                            <img src={producto.img} alt={producto.name} classNameName="cardImg"></img>
+                            <img src={producto.img} alt={producto.name} className="cardImg"></img>
                         </div>
                         <div className="tarjeta-contenido-detalle">
                             <h6 className="tarjetaPrecio">$ {parseNumber(producto.precio)}</h6>

@@ -45,19 +45,18 @@ const Cart = () => {
                     <tbody>
                         {carrito.map(product => {
                             return (
-                                <tr>
+                                <tr key={product.id}>
                                     <td className='prod-name'>{product.name}</td>
                                     <td>{product.cantidad}</td>
                                     <td className='prod-name'>$ {parseNumber(product.price)}</td>
                                     <td className='prod-name'>$ {parseNumber(`${product.cantidad * product.price}`)}</td>
                                     <td><img className='tachito' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1641066871/tachito_yzwc0i.svg'
                                         onClick={() => removeProducto(product.id)}></img></td>
-
                                 </tr>
                             )
                         })}
                         <tr>
-                            <td colspan="2"></td>
+                            <td colSpan="2"></td>
                             <td className='totalPrecio'>TOTAL</td>
                             <td className='totalPrecio'>$ {calculatePrecioTotal()}</td>
                             <td></td>
@@ -66,7 +65,6 @@ const Cart = () => {
                 </table>
                 <button className='botonTerminar' onClick={() => setUpOrder()}>Comprar ahora</button>
                 <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar carrito</button>
-
             </div>
         )
     }

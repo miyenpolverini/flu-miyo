@@ -8,8 +8,8 @@ const History = ({ orden }) => {
     return (
         <div className="order">
             <div>
-                {orden.product.map((prod) =>
-                    <li className='order-container'>
+                {orden.product.map(prod =>
+                    <li key={orden.id} className='order-container'>
                         <div>
                             <img className="imgProd" src={prod.img}></img>
                         </div>
