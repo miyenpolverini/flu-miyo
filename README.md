@@ -9,6 +9,7 @@ npm install boostrap
 npm install react-router-dom@6
 npm install react-icons --save
 npm install firebase
+npm install react-animated-css --save
 
 ## Ejecución
 
@@ -20,29 +21,29 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-## Funciones (simulación consulta base de datos)
-
-`getProducts`     -> promesa que devuelve los productos
-`getProductById`  -> promesa que devuelve los productos por ID
-`getCategories`   -> promesa que devuelve las categorias 
-`getCategoryById` -> promesa que devuelve las categorias por ID
-
 ## Contenedores
 
 `ItemListContainer`     -> es el router principal para traer todos los productos o por ID segùn la categoria
 `ItemDetailContainer`   -> es el router para para obtener el detalle del producto seleccionado
 `ItemCategoryContainer` -> es el router para para obtener todas las categorias para mostrar en el menú desplegable
+`ItemHistoryContainer` -> es el router para para obtener todas las ordenes cargadas en firebase
 
 ## Componentes
 
-`NavBar`       -> menú principal
-`ItemList`     -> realiza el mapeo para obtener los productos
-`CategoryList` -> realiza el mapeo para obtener las categorias
-`CardWidget`   -> devuelve el carrito de compras
-`ItemCount`    -> devuelve el contador
-`Item`         -> devuelve el formateo de la card principal
-`ItemDetail`   -> devuelve el formateo de la card detallada
-`Category`     -> devuelve el formateo de las categorias
+`NavBar`            -> menú principal
+`ItemList`          -> realiza el mapeo para obtener los productos
+`CategoryList`      -> realiza el mapeo para obtener las categorias
+`CardWidget`        -> devuelve el carrito de compras
+`ItemCount`         -> devuelve el contador
+`Item`              -> devuelve el formateo de la card principal
+`ItemDetail`        -> devuelve el formateo de la card detallada
+`Category`          -> devuelve el formateo de las categorias
+`Cart`              -> devuelve la información del carrito
+`FormBuy`           -> devuelve el formulario de confirmación de compra
+`HistoryList`       -> realiza el mapeo para obtener las compras
+`History`           -> devuelve el historial de compras del cliente
+`PurchaseCompleted` -> devuelve el ID de confirmación de compra
+
 
 ## Configuración base de datos Firebase
 

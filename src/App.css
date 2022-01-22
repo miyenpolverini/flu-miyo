@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: wheat;
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -39,4 +39,5 @@
 
 /* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 

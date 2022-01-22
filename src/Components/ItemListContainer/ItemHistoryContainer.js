@@ -5,20 +5,30 @@ import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
 import HistoryList from '../ItemList/HistoryList'
 import cartContext from '../../Context/cartContext'
 
-const MyHistory = () => {
+const ItemHistoryContainer = () => {
 
     const { email } = useContext(cartContext)
     const [orders, setOrders] = useState([])
     const [loading, setLoading] = useState(true)
 
+
+    const dateFormat = (date, locale, options) => 
+        new Intl.DateTimeFormat(locale, options).format(date)
+    
+
     useEffect(() => {
 
         /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
-        getDocs(query(collection(dataBase, 'ordenes'), where('email', '==', email))).then((QuerySnapshot) => {
+        getDocs(query(collection(dataBase, 'ordenes'), where('email', '==', email), orderBy('date','desc'))).then((QuerySnapshot) => {
 
             const orders = QuerySnapshot.docs.map(doc => {
 
-                return { id: doc.id, ...doc.data() }
+                const data = doc.data()
+                const { date } = data
+                const fecha = new Date(date.seconds * 1000)
+                const fechaFormat = dateFormat(fecha, 'es', {dateStyle: 'long'})
+
+                return { id: doc.id, ...doc.data(), fechaFormat }
             })
             setOrders(orders)
         }).catch((error) => {
@@ -37,4 +47,4 @@ const MyHistory = () => {
     )
 }
 
-export default MyHistory
+export default ItemHistoryContainer

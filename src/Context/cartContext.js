@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Cart from '../Components/Cart/Cart'
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { Animated } from "react-animated-css";
 
 const Context = React.createContext()
 
@@ -8,6 +9,8 @@ export const AddCartContextProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([])
     const [order, setOrder] = useState('')
     const [email, setEmail] = useState('')
+    const [notifAdd, setNotifAdd] = useState(false)
+    const [notifDel, setNotifDel] = useState(false)
 
     /* FUNCIONES */
     const isInCart = (prodId) => {
@@ -17,7 +20,9 @@ export const AddCartContextProvider = ({ children }) => {
 
     const removeProducto = (prodId) => {
 
-        const carritoFiltrado = carrito.filter(element => element.id != prodId)
+        setNotifDel(true)
+
+        const carritoFiltrado = carrito.filter(element => element.id !== prodId)
 
         setCarrito(carritoFiltrado);
 
@@ -104,11 +109,40 @@ export const AddCartContextProvider = ({ children }) => {
         setEmail(email)
     }
 
+    const SetNotification = (props) => {
+
+        setTimeout(() => {
+            setNotifAdd(false)
+            setNotifDel(false)
+        }, 3000)
+
+        return (
+            <>
+                <Animated className='notif-general' animationIn="slideInUp" animationOut="slideOutUp" isVisible={true}>
+                    {
+                        props.message === 'add' ?
+                            <div className='notif-add'>
+                                <AiOutlineCheckCircle />
+                                <h4 className='notif-name'>¡Listo! Producto agregado al carrito</h4>
+                            </div>
+                            :
+                            <div className='notif-delete'>
+                                <AiOutlineCloseCircle />
+                                <h4 className='notif-name'>Producto eliminado del carrito</h4>
+                            </div>
+                    }
+                </Animated>
+            </>
+
+        )
+
+
+    }
 
     return (
         <Context.Provider value={{
             addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito, loadOrder, order, saveEmail, email
+            emptyCart, parseNumber, carrito, loadOrder, order, saveEmail, email, SetNotification, setNotifAdd, notifAdd, notifDel
         }}>
             {children}
         </Context.Provider>

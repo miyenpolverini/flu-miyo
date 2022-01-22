@@ -3,13 +3,11 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import cartContext from '../../Context/cartContext'
 import './Cart.scss'
-import { dataBase } from '../../Services/firebase/firebase'
-import { collection, addDoc, writeBatch, getDoc, doc } from 'firebase/firestore'
 import Loader from '../../Loader';
 
 const Cart = () => {
 
-    const { carrito, calculatePrecioTotal, emptyCart, removeProducto, parseNumber } = useContext(cartContext)
+    const { carrito, calculatePrecioTotal, emptyCart, removeProducto, parseNumber, SetNotification, notifDel } = useContext(cartContext)
 
     const [processing, setProcessing] = useState(false)
 
@@ -19,7 +17,7 @@ const Cart = () => {
         return (
             <div>
                 <h2 className='tituloCartVacio'>¡El carrito de compras está vacío!</h2>
-                <img className='avisoCart' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988714/cartEmpty_kplei5.png'></img>
+                <img className='avisoCart' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988714/cartEmpty_kplei5.png' alt='carrito-vacio'></img>
                 <div>
                     <Link to={'/'}>
                         <button className='btnStartBuy'>Empezar a comprar</button>
@@ -50,7 +48,7 @@ const Cart = () => {
                                     <td>{product.cantidad}</td>
                                     <td className='prod-name'>$ {parseNumber(product.price)}</td>
                                     <td className='prod-name'>$ {parseNumber(`${product.cantidad * product.price}`)}</td>
-                                    <td><img className='tachito' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1641066871/tachito_yzwc0i.svg'
+                                    <td><img className='tachito' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1641066871/tachito_yzwc0i.svg' alt='carrito-lleno'
                                         onClick={() => removeProducto(product.id)}></img></td>
                                 </tr>
                             )
@@ -65,6 +63,7 @@ const Cart = () => {
                 </table>
                 <button className='botonTerminar' onClick={() => setUpOrder()}>Comprar ahora</button>
                 <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar carrito</button>
+                {notifDel && <SetNotification />}
             </div>
         )
     }
@@ -75,7 +74,6 @@ const Cart = () => {
 
         setTimeout(() => {
             navigate('/formBuy')
-            setProcessing(false)
         }, 3000)
 
     }

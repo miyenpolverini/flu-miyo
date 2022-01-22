@@ -1,7 +1,6 @@
 import React from 'react'
 import './ItemCount.scss';
 import { useState } from "react";
-import { TiPlus, TiMinus } from "react-icons/ti";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 

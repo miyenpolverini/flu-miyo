@@ -23,9 +23,9 @@ const NavBar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="active menu-boot m-4"  id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">MI CUENTA
-                                </a>
+                                <Link className="active menu-boot m-4" to={'/'}>
+                                    MI CUENTA
+                                </Link>
                                 <ul className="dropdown-menu submenu-boot p-3" aria-labelledby="navbarDropdown">
                                     <Link className="misCompras" to={'/myHistory'}>
                                         Mis compras

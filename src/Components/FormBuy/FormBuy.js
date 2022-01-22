@@ -24,12 +24,6 @@ const FormBuy = () => {
 
     }
 
-    const sendData = (event) => {
-        event.preventDefault()
-        console.log(contact.name + '' + contact.email)
-
-    }
-
 
     const confirmOrder = (event) => {
 
@@ -74,11 +68,8 @@ const FormBuy = () => {
                 })
             }).catch((error) => {
                 console.log('Error conexion firebase', error)
-            }).finally(() => {
-                setBuying(false)
             })
         }
-
 
 
         setTimeout(() => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import CategoryList from "../ItemList/CategoryList"
 import { dataBase } from '../../Services/firebase/firebase'
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
+import { collection, getDocs} from 'firebase/firestore'
 
 const ItemCategoryContainer = () => {
 

@@ -9,11 +9,12 @@ const History = ({ orden }) => {
         <div className="order">
             <div>
                 {orden.product.map(prod =>
-                    <li key={orden.id} className='order-container'>
+                    <li key={prod.id} className='order-container'>
                         <div>
-                            <img className="imgProd" src={prod.img}></img>
+                            <img className="imgProd" src={prod.img} alt='imagen-producto'></img>
                         </div>
                         <div>
+                            <p className="detalleOrderDate">{orden.fechaFormat}</p>
                             <p className="detalleOrder">ID {orden.id}</p>
                             <p className="detalleOrder">{prod.name}</p>
                             <p className="detalleOrder">Total $ {parseNumber(prod.price)}</p>
