@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { Animated } from "react-animated-css";
 
 const Context = React.createContext()
 
@@ -118,20 +117,18 @@ export const AddCartContextProvider = ({ children }) => {
 
         return (
             <>
-                <Animated className='notif-general' animationIn="slideInUp" animationOut="slideOutUp" isVisible={true}>
                     {
                         props.message === 'add' ?
-                            <div className='notif-add'>
+                            <div className='notif-add animate__animated animate__slideInUp'>
                                 <AiOutlineCheckCircle />
                                 <h4 className='notif-name'>¡Listo! Producto agregado al carrito</h4>
                             </div>
                             :
-                            <div className='notif-delete'>
+                            <div className='notif-delete animate__animated animate__slideInUp'>
                                 <AiOutlineCloseCircle />
                                 <h4 className='notif-name'>Producto eliminado del carrito</h4>
                             </div>
                     }
-                </Animated>
             </>
 
         )
