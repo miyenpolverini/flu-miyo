@@ -7,7 +7,7 @@ export const AddCartContextProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
     const [order, setOrder] = useState('')
-    const [email, setEmail] = useState('')
+    const [histories, setHistories] = useState([])
     const [notifAdd, setNotifAdd] = useState(false)
     const [notifDel, setNotifDel] = useState(false)
 
@@ -104,16 +104,17 @@ export const AddCartContextProvider = ({ children }) => {
         setOrder(id)
     }
 
-    const saveEmail = (email) => {
-        setEmail(email)
+    const saveHistories = (histories) => {
+        setHistories(histories)
     }
+
 
     const SetNotification = (props) => {
 
         setTimeout(() => {
             setNotifAdd(false)
             setNotifDel(false)
-        }, 3000)
+        }, 6000)
 
         return (
             <>
@@ -121,12 +122,12 @@ export const AddCartContextProvider = ({ children }) => {
                         props.message === 'add' ?
                             <div className='notif-add animate__animated animate__slideInUp'>
                                 <AiOutlineCheckCircle />
-                                <h4 className='notif-name'>¡Listo! Producto agregado al carrito</h4>
+                                <h4 className='notif-name'>¡Listo! Historia clínica registrada con éxito</h4>
                             </div>
                             :
                             <div className='notif-delete animate__animated animate__slideInUp'>
                                 <AiOutlineCloseCircle />
-                                <h4 className='notif-name'>Producto eliminado del carrito</h4>
+                                <h4 className='notif-name'>Ya existe una historia clínica registrada con el DNI ingresado</h4>
                             </div>
                     }
             </>
@@ -139,7 +140,7 @@ export const AddCartContextProvider = ({ children }) => {
     return (
         <Context.Provider value={{
             addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito, loadOrder, order, saveEmail, email, SetNotification, setNotifAdd, notifAdd, notifDel
+            emptyCart, parseNumber, carrito, loadOrder, order, saveHistories, histories , SetNotification, setNotifAdd, notifAdd, setNotifDel, notifDel
         }}>
             {children}
         </Context.Provider>

@@ -1,16 +1,12 @@
-.nav-index{
-    background-color: rgba(47, 79, 79,.8);
-    font-size: 14px;
-}
-
-.logoTesys{
-    margin-right: 250px;
-    margin-left: 50px;  
-    width: 200px;
+.logoMain{
+    margin-right: 150px;
+    margin-left: 40px;  
+    width: 60px;
+    height: 50px;
 }
 
 .menu-boot{
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     text-decoration: none;
@@ -21,18 +17,6 @@
     border-bottom: 5px solid black;
 }
 
-.carritoContainer{
-    width: 85px;
-    display: flex;
-    align-items:center;
-    margin: 10px;
-    text-decoration: none;
-}
-
-.carrito{
-    width: 50px;
-    margin-right: 10px;
-}
 
 // MENU DESPLEGABLE 
 
@@ -47,13 +31,12 @@ ul ul li {
 ul li:hover ul {
   display:block;
   margin-top: 2px;
-  background-color: darkslategray;
+  background-color: rgba(255, 255, 255, .9);
 } 
 
 .submenu-boot{
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
-    color: white;
   }
 
 
@@ -61,22 +44,18 @@ ul li:hover ul {
   color: gray;  
 }
 
-.cantCarrito{
-  font-size: 14px;
-  color: white;
-  border-radius: 50%;
-  background-color: black;
-  padding: 10px;
-  position: relative;
-  bottom: 10px;
-  right: 20px;
+.separador{
+  color: rgba(0, 0, 0, .5);
+  margin: 10px 20px;
 }
 
-.misCompras{
-    text-decoration: none;
-    color: white;  
-}
+@media only screen and (min-width: 376px) and (max-width: 990px) {
 
-.misCompras:hover{
-  color: gray;  
+  .separador{
+    display: none;
+  }
+
+  .nav-item{
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+  }
 }

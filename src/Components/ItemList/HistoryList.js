@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import History from '../Item/History'
+import cartContext from '../../Context/cartContext'
 
-const HistoryList = ({ordenes}) => {
+const HistoryList = () => {
+
+    const { histories } = useContext(cartContext)
+
     return (
         <div>
-            <h2 className='order-tit'>Mi historial de compras</h2>
-            {ordenes.map(order =>
-                <History key={order.id} orden={order} />
-            )}
+            {histories.length === 0 ? <h2 className='tituloCartVacio'> No existen historias clínicas para los datos ingresados</h2>
+                :
+                histories.map(history =>
+                    <History key={history.id} historia={history} />
+                )}
         </div>
     )
 }

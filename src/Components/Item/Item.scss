@@ -137,7 +137,6 @@
 
 //NOTIFICACIONES
 
-
 .notif-add{
     display: flex;
     background-color: green;
@@ -157,13 +156,13 @@
     background-color: red;
     color: white;
     padding: 15px; 
-    margin-left: -110px;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     width: 100%;
     height: 60px;  
     position: relative;
     bottom: 0px;
+    margin-top: 10px;
     position:fixed;
 }
 
@@ -176,22 +175,18 @@
 
 //ORDENES
 
+.titOrder{
+    list-style: none;
+}
+
 .order-tit{
     color: black;
     font-weight: bolder;
     font-family: 'Poppins', sans-serif;
-    margin-top: 10px;
-}
-
-.order-container{
-    display: flex;
-    align-items: center;
 }
 
 .order {
     margin-top: 50px;
-    margin-left: -350px;
-    width: 500px;
     background-color: white;
     padding: 20px;   
     text-align: left;
@@ -209,6 +204,7 @@
     font-weight: 300;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 20px;
+    list-style-type: none;
 }
 
 .detalleOrderDate{

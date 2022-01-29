@@ -1,28 +1,25 @@
 import React, { useContext } from 'react'
 import cartContext from '../../Context/cartContext'
 
-const History = ({ orden }) => {
+const History = ({ historia }) => {
 
     const { parseNumber } = useContext(cartContext)
 
     return (
-        <div className="order">
-            <div>
-                {orden.product.map(prod =>
-                    <li key={prod.id} className='order-container'>
-                        <div>
-                            <img className="imgProd" src={prod.img} alt='imagen-producto'></img>
-                        </div>
-                        <div>
-                            <p className="detalleOrderDate">{orden.fechaFormat}</p>
-                            <p className="detalleOrder">ID {orden.id}</p>
-                            <p className="detalleOrder">{prod.name}</p>
-                            <p className="detalleOrder">Total $ {parseNumber(prod.price)}</p>
-                        </div>
-                    </li>
-                )}
+        <>
+            <h2 className='order-tit mt-5'>Historia clínica del paciente {historia.name}</h2>
+            <div className="order">
+                <li key={historia.id} className='titOrder'>
+                    <div>
+                        <p className="detalleOrderDate">Fecha: {historia.fechaFormat}</p>
+                        <p className="detalleOrder">DNI: {historia.dni}</p>
+                        <p className="detalleOrder">Tel: {historia.phone}</p>
+                        <p className="detalleOrder">Obra social: {historia.osocial}</p>
+                        <p className="detalleOrder">Nro afiliado: {historia.nroafiliado}</p>
+                    </div>
+                </li>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,40 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemCategoryContainer from '../ItemListContainer/ItemCategoryContainer';
-import CardWidget from './CardWidget';
 import './NavBar.scss';
 
 const NavBar = () => {
     return (
         <main>
-            <nav className="navbar navbar-expand-lg nav-index">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-index">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={'/'}>
-                        <img className="logoTesys" src={'https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988732/logo_pcvqit.png'} alt="logo-tesys" />
+                        <img className="logoMain" src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1642984158/logo-main2_oq8nxa.png' alt="logo-main" />
                     </Link>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto">
-                            <li className="nav-item dropdown">
-                                <Link className="active menu-boot m-4" to={'/'}>
-                                    CATEGORIAS
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse nav-index" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link active" to={'/'}>
+                                    Inicio
                                 </Link>
-                                <ul className="dropdown-menu submenu-boot p-3" aria-labelledby="navbarDropdown">
-                                    <ItemCategoryContainer />
-                                </ul>
                             </li>
-                            <li className="nav-item dropdown">
-                                <Link className="active menu-boot m-4" to={'/'}>
-                                    MI CUENTA
+                            <span class="separador">|</span>
+                            <li className="nav-item">
+                                <Link className="nav-link" to={'/'}>
+                                    Informes
                                 </Link>
-                                <ul className="dropdown-menu submenu-boot p-3" aria-labelledby="navbarDropdown">
-                                    <Link className="misCompras" to={'/myHistory'}>
-                                        Mis compras
+                            </li>
+                            <span class="separador">|</span>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to={'/'} id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Historias clínicas
+                                </Link>
+                                <ul className="dropdown-menu submenu-boot" aria-labelledby="navbarDropdown">
+                                    <Link className="dropdown-item" to={'/formOrder'}>
+                                        <li>
+                                            Crear
+                                        </li>
+                                    </Link>
+                                    <Link className="dropdown-item" to={'/consultar'}>
+                                        <li>
+                                            Consultar
+                                        </li>
                                     </Link>
                                 </ul>
                             </li>
                         </ul>
                     </div>
-                    <CardWidget />
                 </div>
             </nav>
         </main>

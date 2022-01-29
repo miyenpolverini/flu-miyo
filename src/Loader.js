@@ -4,10 +4,9 @@ import './Loader.css'
 const Loader = (props) => {
     return (
         <>
-            <div className="loader"></div>
-            {props.tipo === 'preparando' ? <h3 className="loaderDesc">Preparando todo para tu compra...</h3> 
-            : props.tipo === 'comprando' ? <h3 className="loaderDesc">Finalizando tu compra...</h3> 
-            : <h3 className="loaderDesc">Cargando...</h3>}
+            <div className="loader">  <img className="logoMain" src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1642984158/logo-main2_oq8nxa.png' alt="logo-main" /></div>
+            {props.tipo === 'buscando' && <h3 className="loaderDesc">Buscando historia clínica...</h3>
+            }
         </>
     )
 }
