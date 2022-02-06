@@ -42,7 +42,7 @@ const FormOrder = () => {
             phone: contact.phone,
             osocial: contact.obraSocial.toUpperCase(),
             nroafiliado: contact.obraSocialNumber,
-            comment: contact.comment
+            tratamientos: [{fecha: Timestamp.fromDate(new Date()), tratamiento: contact.tratam}]
         }
 
 
@@ -94,13 +94,20 @@ const FormOrder = () => {
             {buying && <Loader tipo='registrando' />}
             <div>
                 <h2 className='titleForm'>Carga de historia clínica</h2>
-                <form onSubmit={confirmOrder}>
+                <form className='form' onSubmit={confirmOrder}>
                     <div className="form-floating mb-3 mt-5">
                         <input type="text" className="form-control" id="floatingInput" placeholder='name@example.com' name='name' onChange={handleInputChange} required></input>
                         <label className='form-compra'>Nombre del paciente</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input type="text" className="form-control" id="floatingInput" placeholder='name@example.com' name='dni' onChange={handleInputChange} required></input>
+                        <input type="text" 
+                        className="form-control" 
+                        id="floatingInput" 
+                        placeholder='name@example.com' 
+                        name='dni' 
+                        maxLength={8}
+                        onChange={handleInputChange} 
+                        required></input>
                         <label className='form-compra'>DNI</label>
                     </div>
                     <div className="form-floating mb-3">
@@ -127,13 +134,14 @@ const FormOrder = () => {
                         <input type="number" className="form-control" id="floatingInput" placeholder='name@example.com' name='obraSocialNumber' onChange={handleInputChange} required></input>
                         <label className='form-compra'>Nro de afiliado</label>
                     </div>
-                    <div className="form-floating mb-3">
-                        <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='tratamiento' onChange={handleInputChange}></textarea>
-                        <label className='form-compra'>Tratamiento</label>
-                    </div>
                     <div className="form-floating mb-5">
-                        <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='comment' onChange={handleInputChange}></textarea>
-                        <label className='form-compra'>Comentario</label>
+                        <textarea className="form-control" 
+                        id="floatingTextarea" 
+                        placeholder='name@example.com' 
+                        name='tratam' 
+                        onChange={handleInputChange}
+                        required></textarea>
+                        <label className='form-compra'>Tratamiento realizado e indicaciones</label>
                     </div>
                     <button className='btnFinish' type='submit'>Cargar</button>
                     <Link to={'/'}>

@@ -8,8 +8,10 @@ export const AddCartContextProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([])
     const [order, setOrder] = useState('')
     const [histories, setHistories] = useState([])
+    const [historyID, setHistoryID] = useState('')
     const [notifAdd, setNotifAdd] = useState(false)
     const [notifDel, setNotifDel] = useState(false)
+    const [search, setSearch] = useState({ tipoBusqueda: '', codBusqueda: '' })
 
     /* FUNCIONES */
     const isInCart = (prodId) => {
@@ -17,7 +19,7 @@ export const AddCartContextProvider = ({ children }) => {
         return carrito.some(prod => prod.id === prodId)
     }
 
-    const removeProducto = (prodId) => {
+    const removeVisit = (prodId) => {
 
         setNotifDel(true)
 
@@ -139,8 +141,9 @@ export const AddCartContextProvider = ({ children }) => {
 
     return (
         <Context.Provider value={{
-            addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito, loadOrder, order, saveHistories, histories , SetNotification, setNotifAdd, notifAdd, setNotifDel, notifDel
+            setSearch, search, calculateCantTotal, calculatePrecioTotal,
+            emptyCart, parseNumber, carrito, loadOrder, order, saveHistories, histories,
+            setHistoryID, historyID, SetNotification, setNotifAdd, notifAdd, setNotifDel, notifDel
         }}>
             {children}
         </Context.Provider>

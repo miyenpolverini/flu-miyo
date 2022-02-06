@@ -10,8 +10,8 @@ const ItemConsulta = () => {
 
     const { saveHistories } = useContext(cartContext)
 
-    const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState({ tipoBusqueda: '', codBusqueda: '' })
+
 
     let navigate = useNavigate()
 
@@ -26,13 +26,6 @@ const ItemConsulta = () => {
 
     }
 
-    const handleInputChange = (event) => {
-        setSearch({
-            ...search,
-            [event.target.name]: event.target.value
-        })
-
-    }
 
     const ButtonsSearch = () => {
         return (
@@ -47,57 +40,7 @@ const ItemConsulta = () => {
         )
     }
 
-    const findOrder = (event) => {
 
-        setLoading(true)
-
-        event.preventDefault()
-
-        if (search.tipoBusqueda === 'dni') {
-            /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
-            getDocs(query(collection(dataBase, 'historias'), where('dni', '==', search.codBusqueda), orderBy('date', 'desc'))).then((QuerySnapshot) => {
-
-                const histories = QuerySnapshot.docs.map(doc => {
-
-                    const data = doc.data()
-                    const { date } = data
-                    const fecha = new Date(date.seconds * 1000)
-                    const fechaFormat = dateFormat(fecha, 'es', { dateStyle: 'long' })
-
-                    return { id: doc.id, ...doc.data(), fechaFormat }
-                })
-                saveHistories(histories)
-            }).catch((error) => {
-                console.log('Error conexion firebase', error)
-            })
-        }
-        else {
-            /* conexion firebase parametros: referencia base de datos y nombre de la coleccion */
-            getDocs(query(collection(dataBase, 'historias'), where('osocial', '==', search.codBusqueda), orderBy('date', 'desc'))).then((QuerySnapshot) => {
-
-                const histories = QuerySnapshot.docs.map(doc => {
-
-                    const data = doc.data()
-                    const { date } = data
-                    const fecha = new Date(date.seconds * 1000)
-                    const fechaFormat = dateFormat(fecha, 'es', { dateStyle: 'long' })
-
-                    return { id: doc.id, ...doc.data(), fechaFormat }
-                })
-                saveHistories(histories)
-            }).catch((error) => {
-                console.log('Error conexion firebase', error)
-            })
-
-
-        }
-
-
-        setTimeout(() => {
-            navigate('/consultedHistory')
-        }, 3000)
-
-    }
 
 
     return (

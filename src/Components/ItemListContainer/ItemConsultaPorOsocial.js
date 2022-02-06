@@ -7,10 +7,9 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const ItemConsultaPorOsocial = () => {
 
-    const { saveHistories } = useContext(cartContext)
+    const { saveHistories, search, setSearch } = useContext(cartContext)
 
     const [loading, setLoading] = useState(false)
-    const [search, setSearch] = useState({ tipoBusqueda: '', codBusqueda: '' })
 
     let navigate = useNavigate()
 
@@ -73,7 +72,7 @@ const ItemConsultaPorOsocial = () => {
                 :
                 <div>
                     <h2 className='titleForm'>Buscar historia clínica</h2>
-                    <form onSubmit={findOrder}>
+                    <form className='formConsulta' onSubmit={findOrder}>
                         <div className="form-floating mb-3 mt-5">
                             <select 
                             className="form-select" 

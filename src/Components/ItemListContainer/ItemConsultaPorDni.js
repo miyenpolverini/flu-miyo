@@ -4,13 +4,13 @@ import { dataBase } from '../../Services/firebase/firebase'
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
 import cartContext from '../../Context/cartContext'
 import { Link, useNavigate } from 'react-router-dom'
+import './ItemConsulta.scss'
 
 const ItemConsultaPorDni = () => {
 
-    const { saveHistories } = useContext(cartContext)
+    const { saveHistories, setHistoryID, search, setSearch } = useContext(cartContext)
 
     const [loading, setLoading] = useState(false)
-    const [search, setSearch] = useState({ tipoBusqueda: '', codBusqueda: '' })
 
     let navigate = useNavigate()
 
@@ -30,7 +30,6 @@ const ItemConsultaPorDni = () => {
             ...search,
             [event.target.name]: event.target.value
         })
-
     }
 
 
@@ -49,11 +48,14 @@ const ItemConsultaPorDni = () => {
                 const data = doc.data()
                 const { date } = data
                 const fecha = new Date(date.seconds * 1000)
-                const fechaFormat = dateFormat(fecha, 'es', { dateStyle: 'long' })
+                const fechaFormat = dateFormat(fecha, 'es')
+                setHistoryID(doc.id)
 
                 return { id: doc.id, ...doc.data(), fechaFormat }
             })
             saveHistories(histories)
+          
+            
         }).catch((error) => {
             console.log('Error conexion firebase', error)
         })
@@ -68,12 +70,12 @@ const ItemConsultaPorDni = () => {
 
 
     return (
-        <div>
+        <div >
             {loading ? <Loader tipo='buscando' />
                 :
                 <div>
                     <h2 className='titleForm'>Buscar historia clínica</h2>
-                    <form onSubmit={findOrder}>
+                    <form className='formConsulta' onSubmit={findOrder}>
                         <div className="form-floating mb-3 mt-5">
                             <input
                                 type="text"

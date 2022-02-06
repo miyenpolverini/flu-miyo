@@ -10,7 +10,7 @@ const HistoryRegistered = () => {
     return (
         <div className='container-compra'>
             <h4 className='detail-compra'>¡Nueva historia clínica registrada con éxito!</h4>
-            <Link to={'/myHistory'}>
+            <Link to={'/consultar'}>
                 <button className='botonVerCarrito'>Consultar</button>
             </Link>
         </div>

@@ -1,60 +1,33 @@
-.tarjetas {
-    margin: 50px; 
-    display:inline-block;
+
+.formAdd{ 
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    
- }
-.tarjetas:hover{
-    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
 }
 
-.tarjetas:hover .detalleProd {
-    display: block; 
+.formDate{
+    width: 200px;
 }
 
-.tarjeta {
-    width: 300px;
-    background-color: white;
-    padding: 20px;   
+.formVisit{
+    width: 630px;
 }
 
-.tarjeta img {
-    width: 220px;
-    height: 220px;
-}
-
-.tarjeta-contenido{
-    text-decoration: none;
-}
-
-
-.tarjeta-contenido-detalle {
-    margin-top: 50px;
-    padding: 10px;
-    border-top: 2px solid black;
-}
-
-.tarjetaTitulo{
-    color: darkslategray;
-    font-weight: bolder;
-    font-size: 18px;
-}
-
-.tarjetaPrecio{
-    color: darkslategray;
-    font-weight: bolder;
-    text-align: left;
-    font-size: 20px;
-}
-
-.tarjetaDetalle{
-    width: 100px;
-    font-size: 14px;
-    background-color: darkslategray;
+//BOTONES
+.btnAdd{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     color: white;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgba(30, 144, 255, .9);
+    border: rgba(30, 144, 255, .9);
+    margin-left: 20px;
+}
+
+.btnAdd:hover{
+    background-color: dodgerblue;
 }
 
 //ITEM DETALLE
@@ -118,7 +91,7 @@
     width: 250px;
     padding: 10px;
     border-radius: 10px;
-    margin: 75px 10px;
+    margin: 50px 10px;
     background-color:rgba(30, 144, 255, .9);
     border: rgba(30, 144, 255, .9);
 }
@@ -185,7 +158,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.order-visit{
+    color: black;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+
+}
+
 .order {
+    width: 800px;
+    margin:0 auto;
     margin-top: 50px;
     background-color: white;
     padding: 20px;   
@@ -216,4 +199,51 @@
 }
 
 
+//TABLA
+.table-histories{
+    width: 800px;
+    margin:0 auto;
+    font-size: 20px;  
+}
 
+.table-tit-date{
+    width: 100px;
+}
+
+.table-tit-trat{
+    width: 700px;
+}
+
+.table-tit-tach{
+    width: 10px;
+}
+
+.tachito{
+    width: 15px;
+    color: white;
+}
+
+.tachito:hover{
+    cursor: pointer;
+}
+
+.totalPrecio{
+    font-weight: bolder;
+    text-align: left;
+}
+
+.prod-name{
+    text-align: left;
+}
+
+@media only screen and (min-width: 376px) and (max-width: 990px) {
+
+    .formAdd{ 
+        display:inline-block;
+       
+    }
+    .formVisit{
+        width: 400px;
+    }
+  
+  }

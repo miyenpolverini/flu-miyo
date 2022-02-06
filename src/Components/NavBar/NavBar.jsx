@@ -20,13 +20,13 @@ const NavBar = () => {
                                     Inicio
                                 </Link>
                             </li>
-                            <span class="separador">|</span>
+                            <span className="separador">|</span>
                             <li className="nav-item">
                                 <Link className="nav-link" to={'/'}>
                                     Informes
                                 </Link>
                             </li>
-                            <span class="separador">|</span>
+                            <span className="separador">|</span>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to={'/'} id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Historias clínicas
