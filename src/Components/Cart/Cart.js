@@ -8,6 +8,7 @@ import Loader from '../../Loader';
 const Cart = () => {
 
     const { carrito, calculatePrecioTotal, emptyCart, removeProducto, parseNumber, SetNotification, notifDel } = useContext(cartContext)
+    
 
     const [processing, setProcessing] = useState(false)
 
@@ -16,11 +17,11 @@ const Cart = () => {
     const CartEmpty = () => {
         return (
             <div>
-                <h2 className='tituloCartVacio'>¡El carrito de compras está vacío!</h2>
+                <h2 className='tituloCartVacio'>¡La lista de regalos está vacía!</h2>
                 <img className='avisoCart' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988714/cartEmpty_kplei5.png' alt='carrito-vacio'></img>
                 <div>
-                    <Link to={'/'}>
-                        <button className='btnStartBuy'>Empezar a comprar</button>
+                    <Link to={'/regalos'}>
+                        <button className='btnStartBuy'>Empezar a regalar</button>
                     </Link>
                 </div>
             </div>
@@ -33,7 +34,7 @@ const Cart = () => {
                 <table className="table table-light table-hover table-carrito">
                     <thead>
                         <tr>
-                            <th className='table-dark table-tit-prod' scope="col">Producto</th>
+                            <th className='table-dark table-tit-prod' scope="col">Regalo</th>
                             <th className='table-dark table-tit-cant' scope="col">Cantidad</th>
                             <th className='table-dark table-tit-prec' scope="col">Precio</th>
                             <th className='table-dark table-tit-stot' scope="col">Subtotal</th>
@@ -61,9 +62,10 @@ const Cart = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button className='botonTerminar' onClick={() => setUpOrder()}>Comprar ahora</button>
-                <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar carrito</button>
+                <button className='botonTerminar' onClick={() => setUpOrder()}>Pagar regalo</button>
+                <button className='botonVaciar' onClick={() => emptyCart()}>Vaciar lista</button>
                 {notifDel && <SetNotification />}
+
             </div>
         )
     }
@@ -74,7 +76,7 @@ const Cart = () => {
 
         setTimeout(() => {
             navigate('/formBuy')
-        }, 3000)
+        }, 500)
 
     }
 

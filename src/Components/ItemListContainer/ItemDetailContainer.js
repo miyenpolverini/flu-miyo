@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        getDoc(doc(dataBase, 'productos', paramId)).then((QuerySnapshot) => {
+        getDoc(doc(dataBase, 'regalos', paramId)).then((QuerySnapshot) => {
 
             const item = { id: QuerySnapshot.id, ...QuerySnapshot.data() }
             setItem(item)

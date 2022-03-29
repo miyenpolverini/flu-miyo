@@ -1,24 +1,50 @@
-.logoMain{
-    margin-right: 150px;
-    margin-left: 40px;  
-    width: 60px;
-    height: 50px;
+.nav-index{
+  background-image: url(https://res.cloudinary.com/dw94zgfgu/image/upload/v1648156906/fondo-de-patr%C3%B3n-textura-m%C3%A1rmol-dorado-blanco-con-dise%C3%B1o-alta-resoluci%C3%B3n-para-papel-tapiz-cart%C3%B3n-o-p%C3%B3ster-folleto-cartelera-189256592_pofn6l.jpg); 
+  border-bottom: 1px solid rgba(0, 0, 0, .3); 
 }
 
-
+.logoWedding{
+    margin-left: 2em;  
+    margin-right: 4em;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
 
 .menu-boot{
-    color: rgba(255, 255, 255, 0.9);
-    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-family: 'Poppins', sans-serif;
     font-weight: bolder;
     text-decoration: none;
+    margin-right: 1em;
+    padding: 3px; 
 }
 
 .menu-boot:hover{
-    color: white;
-    border-bottom: 5px solid black;
+    color: black;
+    background-color: rgba(238, 222, 135, 0.6);
+    border-radius: 10px;
 }
 
+.cajitaContainer{
+    width: 7em;
+    display: flex;
+    align-items:center;
+    margin: 0.5em;
+    text-decoration: none;
+}
+
+.cajita{
+    width: 5em;
+}
+
+.icon-calendar{
+  font-size: 30px;
+}
+
+.info{
+  font-size: 14px;
+  margin-left: 5px;
+}
 
 // MENU DESPLEGABLE 
 
@@ -33,12 +59,13 @@ ul ul li {
 ul li:hover ul {
   display:block;
   margin-top: 2px;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: darkslategray;
 } 
 
 .submenu-boot{
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
+    color: black;
   }
 
 
@@ -46,18 +73,23 @@ ul li:hover ul {
   color: gray;  
 }
 
-.separador{
-  color: rgba(0, 0, 0, .5);
-  margin: 10px 20px;
+.cantCarrito{
+  font-size: 1em;
+  color: black;
+  font-weight: bolder;
+  border-radius: 50%;
+  background-color: rgba(218, 165, 32, .7);
+  padding: 0.6em;
+  position: relative;
+  bottom: 0.8em;
+  right: 1.5em;
 }
 
-@media only screen and (min-width: 376px) and (max-width: 990px) {
+.misCompras{
+    text-decoration: none;
+    color: white;  
+}
 
-  .separador{
-    display: none;
-  }
-
-  .nav-item{
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-  }
+.misCompras:hover{
+  color: gray;  
 }

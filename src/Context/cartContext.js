@@ -7,11 +7,9 @@ export const AddCartContextProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
     const [order, setOrder] = useState('')
-    const [histories, setHistories] = useState([])
-    const [historyID, setHistoryID] = useState('')
+    const [email, setEmail] = useState('')
     const [notifAdd, setNotifAdd] = useState(false)
     const [notifDel, setNotifDel] = useState(false)
-    const [search, setSearch] = useState({ tipoBusqueda: '', codBusqueda: '' })
 
     /* FUNCIONES */
     const isInCart = (prodId) => {
@@ -19,7 +17,7 @@ export const AddCartContextProvider = ({ children }) => {
         return carrito.some(prod => prod.id === prodId)
     }
 
-    const removeVisit = (prodId) => {
+    const removeProducto = (prodId) => {
 
         setNotifDel(true)
 
@@ -106,17 +104,16 @@ export const AddCartContextProvider = ({ children }) => {
         setOrder(id)
     }
 
-    const saveHistories = (histories) => {
-        setHistories(histories)
+    const saveEmail = (email) => {
+        setEmail(email)
     }
-
 
     const SetNotification = (props) => {
 
         setTimeout(() => {
             setNotifAdd(false)
             setNotifDel(false)
-        }, 6000)
+        }, 3000)
 
         return (
             <>
@@ -124,12 +121,12 @@ export const AddCartContextProvider = ({ children }) => {
                         props.message === 'add' ?
                             <div className='notif-add animate__animated animate__slideInUp'>
                                 <AiOutlineCheckCircle />
-                                <h4 className='notif-name'>¡Listo! Historia clínica registrada con éxito</h4>
+                                <h4 className='notif-name'>¡Listo! Regalo agregado</h4>
                             </div>
                             :
                             <div className='notif-delete animate__animated animate__slideInUp'>
                                 <AiOutlineCloseCircle />
-                                <h4 className='notif-name'>Ya existe una historia clínica registrada con el DNI ingresado</h4>
+                                <h4 className='notif-name'>Regalo eliminado de la lista</h4>
                             </div>
                     }
             </>
@@ -141,9 +138,8 @@ export const AddCartContextProvider = ({ children }) => {
 
     return (
         <Context.Provider value={{
-            setSearch, search, calculateCantTotal, calculatePrecioTotal,
-            emptyCart, parseNumber, carrito, loadOrder, order, saveHistories, histories,
-            setHistoryID, historyID, SetNotification, setNotifAdd, notifAdd, setNotifDel, notifDel
+            addCarrito, removeProducto, calculateCantTotal, calculatePrecioTotal,
+            emptyCart, parseNumber, carrito, loadOrder, order, saveEmail, email, SetNotification, setNotifAdd, notifAdd, notifDel
         }}>
             {children}
         </Context.Provider>

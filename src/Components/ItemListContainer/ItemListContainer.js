@@ -1,4 +1,5 @@
 import ItemList from "../ItemList/ItemList"
+import './ItemConsulta.scss'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
@@ -18,7 +19,7 @@ const ItemListContainer = (props) => {
         if (categoryId) {
             //consulta firebase por filtros (query)
 
-            getDocs(query(collection(dataBase, 'productos'), where('category', '==', categoryId),orderBy('precio'))).then((QuerySnapshot) => {
+            getDocs(query(collection(dataBase, 'regalos'), where('category', '==', categoryId), orderBy('price'))).then((QuerySnapshot) => {
 
                 const products = QuerySnapshot.docs.map(doc => {
 
@@ -39,7 +40,7 @@ const ItemListContainer = (props) => {
 
                 try {
 
-                    const QuerySnapshot = await getDocs(query(collection(dataBase, 'productos'), orderBy('category'),orderBy('precio')))
+                    const QuerySnapshot = await getDocs(query(collection(dataBase, 'regalos'), orderBy('category'), orderBy('price')))
                     const products = QuerySnapshot.docs.map(doc => {
 
                         return { id: doc.id, ...doc.data() }
@@ -58,10 +59,10 @@ const ItemListContainer = (props) => {
 
 
     return (
-        <>
-            {/* <h1 style={style}>{props.greeting}</h1> */}
+        <div className="App-Regalos">
             {loading ? <Loader /> : <ItemList productos={products} />}
-        </>
+        </div>
+
     )
 }
 

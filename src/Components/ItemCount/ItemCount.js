@@ -10,9 +10,9 @@ const ItemCount = ({ onAdd, stock, initial }) => {
 
     /* funciones */
     const increment = () => {
-        if (contador < stock) {
+       
             setContador(contador + 1)
-        }
+        
     }
 
     const decrement = () => {
@@ -45,8 +45,7 @@ const ItemCount = ({ onAdd, stock, initial }) => {
                     </div>
                 </div>
             </div>
-            <button className='botonAgregar' onClick={() => onAdd(contador)}>Agregar al carrito
-            </button>
+            <button className='botonAgregar' onClick={() => onAdd(contador)}>Regalar</button>
         </div>
     )
 }

@@ -9,8 +9,8 @@ const CardWidget = () => {
 
     return (
         <>
-            <Link className='carritoContainer' to={'/cart'}>
-                <img className='carrito' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1640988719/carrito_vgr69e.png' alt='imagen-carrito'></img>
+            <Link className='cajitaContainer' to={'/cart'}>
+                <img className='cajita' src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1648159953/cajas-de-regalo-png-png-image-233094_dz6i2t.png'></img>
                 <h5 className='cantCarrito'>{calculateCantTotal()}</h5>
             </Link >
         </>

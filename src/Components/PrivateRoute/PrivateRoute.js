@@ -12,7 +12,7 @@ const PrivateRoute = ({ children, privType }) => {
         return carrito.length === 0 ? <Navigate to='/' /> : children
     }
     else {
-        if (privType === 'historyRegistered') {    
+        if (privType === 'purchaseCompleted') {    
             return order === '' ? <Navigate to='/' /> : children
         }
     }

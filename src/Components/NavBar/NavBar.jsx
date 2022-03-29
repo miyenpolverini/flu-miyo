@@ -1,51 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CardWidget from './CardWidget';
 import './NavBar.scss';
+import { BiCalendar } from "react-icons/bi";
+import { GiPresent } from "react-icons/gi";
 
 const NavBar = () => {
     return (
         <main>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-index">
+            <nav className="navbar navbar-expand-lg navbar-light nav-index">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={'/'}>
-                        <img className="logoMain" src='https://res.cloudinary.com/dw94zgfgu/image/upload/v1642984158/logo-main2_oq8nxa.png' alt="logo-main" />
+                        <h3 className='logoWedding'>#FLU&MIYO</h3>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse nav-index" id="navbarNavDropdown">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="nav-link active" to={'/'}>
-                                    Inicio
-                                </Link>
-                            </li>
-                            <span className="separador">|</span>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/'}>
-                                    Informes
-                                </Link>
-                            </li>
-                            <span className="separador">|</span>
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to={'/'} id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Historias clínicas
-                                </Link>
-                                <ul className="dropdown-menu submenu-boot" aria-labelledby="navbarDropdown">
-                                    <Link className="dropdown-item" to={'/formOrder'}>
-                                        <li>
-                                            Crear
-                                        </li>
-                                    </Link>
-                                    <Link className="dropdown-item" to={'/consultar'}>
-                                        <li>
-                                            Consultar
-                                        </li>
-                                    </Link>
-                                </ul>
-                            </li>
+
+                            <Link className="active menu-boot" to={'/regalos'}>
+                                <div className='icon-calendar'>
+                                    <GiPresent />
+                                </div>
+                                <p className='info'>REGALOS</p>
+                            </Link>
+
+                            <Link className="active menu-boot" to={'/infoEvento'}>
+                                <div className='icon-calendar'>
+                                    <BiCalendar />
+                                </div>
+                                <p className='info'>INFO DE EVENTOS</p>
+                            </Link>
                         </ul>
                     </div>
+                    <CardWidget />
                 </div>
             </nav>
         </main>

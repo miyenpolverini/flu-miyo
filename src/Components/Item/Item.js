@@ -17,9 +17,8 @@ const Item = ({ producto }) => {
                             <img src={producto.img} alt={producto.name} className="cardImg"></img>
                         </div>
                         <div className="tarjeta-contenido-detalle">
-                            <h6 className="tarjetaPrecio">$ {parseNumber(producto.precio)}</h6>
+                            <h6 className="tarjetaPrecio">$ {parseNumber(producto.price)}</h6>
                         </div>
-                        <p className="cuotas"> 12 cuotas sin interés</p>
                         <p className="detalleProd">{producto.detail}</p>
                     </Link>
                 </div>
