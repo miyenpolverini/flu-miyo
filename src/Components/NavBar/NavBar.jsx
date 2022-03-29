@@ -32,9 +32,10 @@ const NavBar = () => {
                                 </div>
                                 <p className='info'>INFO DE EVENTOS</p>
                             </Link>
+                            <CardWidget />
                         </ul>
                     </div>
-                    <CardWidget />
+
                 </div>
             </nav>
         </main>
