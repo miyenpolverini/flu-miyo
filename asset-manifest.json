@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/flu-miyo/static/css/main.3ff68254.chunk.css",
-    "main.js": "/flu-miyo/static/js/main.fc63f1d8.chunk.js",
-    "main.js.map": "/flu-miyo/static/js/main.fc63f1d8.chunk.js.map",
+    "main.css": "/flu-miyo/static/css/main.96ff6c01.chunk.css",
+    "main.js": "/flu-miyo/static/js/main.514c9bc6.chunk.js",
+    "main.js.map": "/flu-miyo/static/js/main.514c9bc6.chunk.js.map",
     "runtime-main.js": "/flu-miyo/static/js/runtime-main.5b85dde0.js",
     "runtime-main.js.map": "/flu-miyo/static/js/runtime-main.5b85dde0.js.map",
     "static/css/2.383c0125.chunk.css": "/flu-miyo/static/css/2.383c0125.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.228c8632.chunk.js.map": "/flu-miyo/static/js/3.228c8632.chunk.js.map",
     "index.html": "/flu-miyo/index.html",
     "static/css/2.383c0125.chunk.css.map": "/flu-miyo/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.3ff68254.chunk.css.map": "/flu-miyo/static/css/main.3ff68254.chunk.css.map",
+    "static/css/main.96ff6c01.chunk.css.map": "/flu-miyo/static/css/main.96ff6c01.chunk.css.map",
     "static/js/2.c365c0e9.chunk.js.LICENSE.txt": "/flu-miyo/static/js/2.c365c0e9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5b85dde0.js",
     "static/css/2.383c0125.chunk.css",
     "static/js/2.c365c0e9.chunk.js",
-    "static/css/main.3ff68254.chunk.css",
-    "static/js/main.fc63f1d8.chunk.js"
+    "static/css/main.96ff6c01.chunk.css",
+    "static/js/main.514c9bc6.chunk.js"
   ]
 }
