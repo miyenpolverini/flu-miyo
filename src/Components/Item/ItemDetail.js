@@ -38,12 +38,11 @@ const ItemDetail = ({ item }) => {
         <div >
             <div className="itemDetalle">
                 <div>
-                    <div>
-                        <img className="itemImg" src={item.img} alt={item.name}></img>
-                    </div>
+                    <img className="itemImg" src={item.img} alt={item.name}></img>
                 </div>
                 <div>
                     <h2 className='itemDetail'>{item.detail}</h2>
+                    <p className='itemCarac'>{item.include}</p>
                     <h4 className="itemPrecio">$ {parseNumber(item.price)}</h4>
                     {btnAgregar ? <ItemCount onAdd={(contador) => agregarCarrito(contador)} stock={item.stock} initial={1} />
                         : <ButtonViewCart />}
