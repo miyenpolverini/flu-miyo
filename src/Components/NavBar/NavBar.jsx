@@ -18,14 +18,12 @@ const NavBar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-
                             <Link className="active menu-boot" to={'/regalos'}>
                                 <div className='icon-calendar'>
                                     <GiPresent />
                                 </div>
                                 <p className='info'>REGALOS</p>
                             </Link>
-
                             <Link className="active menu-boot" to={'/infoEvento'}>
                                 <div className='icon-calendar'>
                                     <BiCalendar />
@@ -35,7 +33,6 @@ const NavBar = () => {
                             <CardWidget />
                         </ul>
                     </div>
-
                 </div>
             </nav>
         </main>

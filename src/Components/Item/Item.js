@@ -6,20 +6,22 @@ import cartContext from '../../Context/cartContext'
 
 const Item = ({ producto }) => {
 
-    const { parseNumber} = useContext(cartContext)
+    const { parseNumber } = useContext(cartContext)
 
     return (
         <div className="tarjetas">
             <div className="tarjeta">
                 <div>
                     <Link className="tarjeta-contenido" to={`/detail/${producto.id}`}>
+                        <p className='tarjeta-desc'>{producto.include}</p>
                         <div>
                             <img src={producto.img} alt={producto.name} className="cardImg"></img>
                         </div>
+                        <p className="detalleProd">{producto.detail}</p>
                         <div className="tarjeta-contenido-detalle">
                             <h6 className="tarjetaPrecio">$ {parseNumber(producto.price)}</h6>
                         </div>
-                        <p className="detalleProd">{producto.detail}</p>
+                        <button className='tarjeta-boton'>REGALÁ</button>
                     </Link>
                 </div>
             </div>
