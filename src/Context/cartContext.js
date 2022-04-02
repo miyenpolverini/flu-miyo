@@ -42,7 +42,7 @@ export const AddCartContextProvider = ({ children }) => {
         }
         else {
 
-            setCarrito([...carrito, { id: prodId, name: prodName, price: prodPrice, img: prodImg, cantidad: prodQuantity }]);
+            setCarrito([...carrito, { id: prodId, detail: prodName, price: prodPrice, img: prodImg, cantidad: prodQuantity }]);
 
         }
 
