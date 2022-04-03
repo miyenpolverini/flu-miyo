@@ -110,14 +110,14 @@ text-align: left;
 }
 
 .regalo{
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items:baseline;
     justify-content: space-between;
 }
 
 
-.regalo-st{
+.regalo-eliminar{
     border-bottom: 1px solid black;
     margin-bottom: 1em;
 }

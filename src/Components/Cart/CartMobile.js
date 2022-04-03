@@ -42,7 +42,7 @@ const CartMobile = ({ regalo }) => {
                     <p>$ {parseNumber(`${regalo.cantidad * regalo.price}`)}</p>
                 </div>
             </div>
-            <div className="regalo-st">
+            <div className="regalo-eliminar">
                 <button className='botonEliminarRegalo' onClick={() => removeProducto(regalo.id)}>Eliminar regalo</button>
             </div>
         </div>

@@ -117,18 +117,18 @@ export const AddCartContextProvider = ({ children }) => {
 
         return (
             <>
-                    {
-                        props.message === 'add' ?
-                            <div className='notif-add animate__animated animate__slideInUp'>
-                                <AiOutlineCheckCircle />
-                                <h4 className='notif-name'>¡Listo! Regalo agregado</h4>
-                            </div>
-                            :
-                            <div className='notif-delete animate__animated animate__slideInUp'>
-                                <AiOutlineCloseCircle />
-                                <h4 className='notif-name'>Regalo eliminado de la lista</h4>
-                            </div>
-                    }
+                {
+                    props.message === 'add' ?
+                        <div className='notif-add animate__animated animate__slideInUp'>
+                            <AiOutlineCheckCircle />
+                            <h4 className='notif-name'>¡Listo! Regalo agregado</h4>
+                        </div>
+                        :
+                        <div className='notif-delete animate__animated animate__slideInUp'>
+                            <AiOutlineCloseCircle />
+                            <h4 className='notif-name'>Regalo eliminado de la lista</h4>
+                        </div>
+                }
             </>
 
         )

@@ -1,8 +1,8 @@
 .nav-index{
-  background-image: url(https://res.cloudinary.com/dw94zgfgu/image/upload/v1648052205/fondo_qbknsj.jpg); 
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid rgba(0, 0, 0, .3); 
+  background-color: rgba(255, 255, 255, .9);
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  position: fixed !important;
+  width: 100%;
 }
 
 .logoWedding{
@@ -28,7 +28,6 @@
 }
 
 .cajitaContainer{
-    width: 7em;
     display: flex;
     align-items:center;
     margin: 0.5em;
@@ -103,6 +102,18 @@ ul li:hover ul {
   .logoWedding{
     margin-right: 8em;
 }
-  
+
+}
+
+@media only screen and (max-width: 989px)  {
+
+  .cajitaContainer{
+    display: inline-flex;
+
+
+}
+
+
+
 
 }

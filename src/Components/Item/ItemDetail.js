@@ -48,7 +48,9 @@ const ItemDetail = ({ item }) => {
                         : <ButtonViewCart />}
                 </div>
             </div>
-            {notifAdd && <SetNotification message='add' />}
+            <div>
+                {notifAdd && <SetNotification message='add' />}
+            </div>
         </div>
     )
 }
