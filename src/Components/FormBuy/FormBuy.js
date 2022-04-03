@@ -75,6 +75,10 @@ const FormBuy = () => {
                     <h2 className='titleForm mt-3'>¡Tu regalo a un paso!</h2>
                     <form onSubmit={confirmOrder}>
                         <div className="form-floating mb-3 mt-5">
+                            <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='comment' onChange={handleInputChange}></textarea>
+                            <label className='form-compra'>Dedicatoria</label>
+                        </div>
+                        <div className="form-floating mb-3">
                             <input type="text" className="form-control" id="floatingInput" placeholder='name@example.com' name='name' onChange={handleInputChange} required></input>
                             <label className='form-compra'>Familia</label>
                         </div>
@@ -86,10 +90,7 @@ const FormBuy = () => {
                             <input type="number" className="form-control" id="floatingInput" placeholder='name@example.com' name='phone' onChange={handleInputChange} required></input>
                             <label className='form-compra'>Celular</label>
                         </div>
-                        <div className="form-floating mb-5">
-                            <textarea className="form-control" id="floatingTextarea" placeholder='name@example.com' name='comment' onChange={handleInputChange}></textarea>
-                            <label className='form-compra'>Dedicatoria</label>
-                        </div>
+                        <div className='total-regalo mb-2'>TOTAL: $ {calculatePrecioTotal()} </div>
                         <button className='btnFinish' type='submit'>Finalizar mi compra</button>
                         <Link to={'/cart'}>
                             <button className='btnCancel'>Volver</button>
