@@ -1,6 +1,7 @@
 .container-compra{
     background-color: white;
     padding: 1em;
+    margin-top: 3em;
 }
 
 .detail-compra-tit{
@@ -18,4 +19,13 @@
 .detail-compra-info{
     color: black;
     font-family: 'Poppins', sans-serif;
+}
+
+
+@media only screen and (max-width: 375px) {
+
+    .container-compra{
+        margin-top: 3em;
+    }
+
 }

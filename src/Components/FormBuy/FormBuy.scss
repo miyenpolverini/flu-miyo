@@ -1,3 +1,7 @@
+.App-FormBuy{
+    margin-top: 5em;
+}
+
 .form-compra{
     color: black;
     font-size: 16px;
@@ -28,4 +32,12 @@
 .btnFinish:hover,
 .btnCancel:hover{
     background-color:rgba(2, 54, 2, 0.5);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .App-FormBuy{
+        margin-top: 5em;
+    }
+
 }

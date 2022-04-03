@@ -71,7 +71,7 @@ const FormBuy = () => {
     return (
         <>
             {buying ? <Loader tipo='comprando' /> :
-                <div>
+                <div className='App-FormBuy'>
                     <h2 className='titleForm mt-3'>¡Tu regalo a un paso!</h2>
                     <form onSubmit={confirmOrder}>
                         <div className="form-floating mb-3 mt-5">
