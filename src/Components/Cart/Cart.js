@@ -36,7 +36,7 @@ const Cart = () => {
 
     const CartFull = () => {
         return (
-            <div>
+            <div className='App-CartFull'>
                 {isDesktopOrLaptop ?
                     <table className="table table-light table-hover table-carrito">
                         <thead>
