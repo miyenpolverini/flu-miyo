@@ -18,7 +18,10 @@
     font-weight: bolder;
     text-decoration: none;
     margin-right: 1em;
-    padding: 3px; 
+    display:flex;
+    align-items: center;
+    padding: 0.5em;
+  
 }
 
 .menu-boot:hover{
@@ -45,6 +48,19 @@
 .info{
   font-size: 14px;
   margin-left: 5px;
+  margin-top: 2em;
+}
+
+.cantCarrito{
+  font-size: 1em;
+  width: 2em;
+  color: black;
+  font-weight: bolder;
+  border-radius: 10px;
+  background-color: rgba(218, 165, 32, .7);
+  padding: 0.5em;
+  margin-top: 1em;
+
 }
 
 // MENU DESPLEGABLE 
@@ -74,17 +90,7 @@ ul li:hover ul {
   color: gray;  
 }
 
-.cantCarrito{
-  font-size: 1em;
-  color: black;
-  font-weight: bolder;
-  border-radius: 50%;
-  background-color: rgba(218, 165, 32, .7);
-  padding: 0.6em;
-  position: relative;
-  bottom: 0.8em;
-  right: 1.5em;
-}
+
 
 .misCompras{
     text-decoration: none;

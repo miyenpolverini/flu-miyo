@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import cartContext from '../../Context/cartContext'
 import { Link } from 'react-router-dom';
-import CardWidget from './CardWidget';
 import './NavBar.scss';
 import { BiCalendar } from "react-icons/bi";
 import { GiPresent } from "react-icons/gi";
 
 const NavBar = () => {
+
+    const { calculateCantTotal } = useContext(cartContext)
+
     return (
         <main>
             <nav className="navbar navbar-expand-lg navbar-light nav-index">
@@ -22,15 +25,26 @@ const NavBar = () => {
                                 <div className='icon-calendar'>
                                     <GiPresent />
                                 </div>
-                                <p className='info'>REGALOS</p>
+                                <div>
+                                    <p className='info'>REGALOS</p>
+                                </div>
                             </Link>
                             <Link className="active menu-boot" to={'/infoEvento'}>
                                 <div className='icon-calendar'>
                                     <BiCalendar />
                                 </div>
-                                <p className='info'>INFO DE EVENTOS</p>
+                                <div>
+                                    <p className='info'>INFO DE EVENTOS</p>
+                                </div>
                             </Link>
-                            <CardWidget />
+                            <Link className="active menu-boot" to={'/cart'}>
+                                <div>
+                                    <h5 className='cantCarrito'>{calculateCantTotal()}</h5>
+                                </div>
+                                <div>
+                                    <p className='info'>MIS REGALOS</p>
+                                </div>
+                            </Link>
                         </ul>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ const ItemDetail = ({ item }) => {
                     <button className='botonSeguirCompra'>Agregar otro regalo</button>
                 </Link>
                 <Link to={'/cart'}>
-                    <button className='botonVerCarrito'>Ir a la lista de regalos</button>
+                    <button className='botonVerCarrito'>Continuar</button>
                 </Link>
             </div>
         )
