@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import cartContext from '../../Context/cartContext'
 import './FormBuy.scss'
-import { dataBase } from '../../Services/firebase/firebase'
+import { dataBase } from '../../services/firebase/firebase'
 import { collection, addDoc, writeBatch, Timestamp } from 'firebase/firestore'
 import Loader from '../../Loader'
 

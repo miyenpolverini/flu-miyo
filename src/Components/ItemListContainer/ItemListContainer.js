@@ -3,7 +3,7 @@ import './ItemConsulta.scss'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Loader from "../../Loader"
-import { dataBase } from '../../Services/firebase/firebase'
+import { dataBase } from '../../services/firebase/firebase'
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
 
 
