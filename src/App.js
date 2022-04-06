@@ -10,7 +10,6 @@ import FormBuy from './Components/FormBuy/FormBuy';
 import PurchaseCompleted from './Components/PurchaseCompleted/PurchaseCompleted';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import InfoEvento from './Components/InfoEvento/InfoEvento';
-import ItemCountDown from './Components/ItemCountDown/ItemCountDown';
 import Footer from './Components/Footer/Footer';
 import ItemIndex from './Components/ItemIndex/ItemIndex';
 
@@ -22,7 +21,6 @@ function App() {
       <AddCartContextProvider>
         <BrowserRouter>
           <NavBar />
-          <ItemCountDown />
           <div className="App-header">
             <Routes>
               <Route path='/' element={<ItemIndex />}></Route>

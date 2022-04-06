@@ -46,9 +46,6 @@ const FormBuy = () => {
 
 
         const batch = writeBatch(dataBase)
-        const outOfStock = []
-
-
 
 
         addDoc(collection(dataBase, 'ordenes'), newOrder).then(({ id }) => {
